@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,8 +18,14 @@ public class Move : MonoBehaviour
     public Vector2 minPower;
     public Vector2 maxPower;
     
+    
 
-     TrajectoryLine tl;
+    public float floatHeight;     // Desired floating height.
+    public float liftForce;       // Force to apply when lifting the rigidbody.
+    public float damping;         // Force reduction proportional to speed (reduces bouncing).
+
+
+    TrajectoryLine tl;
 
     float _moveVelocity;
 
@@ -26,6 +33,7 @@ public class Move : MonoBehaviour
 
     bool _isGrounded = true;
     private bool _isCharge = false;
+    
 
 
     private Vector3 startPoint;
@@ -61,33 +69,37 @@ public class Move : MonoBehaviour
 
     }
 
+
+    
     void Charge()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (_isGrounded)
         {
-            startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            startPoint.z = 15;
+            if (Input.GetMouseButtonDown(0))
+            {
+                startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                startPoint.z = 15;
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 curentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                curentPoint.z = 15;
+                tl.RenderLine(startPoint, curentPoint);
+            }
+
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                endPoint.z = 15;
+                force = new Vector2(Math.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x),
+                    Math.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
+                rb.AddForce(force * power, ForceMode2D.Impulse);
+                tl.EndLine();
+                _isGrounded = false;
+            }
         }
-
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 curentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            curentPoint.z = 15;
-            tl.RenderLine(startPoint, curentPoint);
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            endPoint.z = 15;
-            force = new Vector2(Math.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x),
-                Math.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
-            rb.AddForce(force * power, ForceMode2D.Impulse);
-            tl.EndLine();
-
-        }
-
-
     }
 
     void Movement()

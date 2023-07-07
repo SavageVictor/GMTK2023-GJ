@@ -291,6 +291,9 @@ MonoBehaviour:
   _jump: 5
   minPower: {x: -8, y: -8}
   maxPower: {x: 8, y: 8}
+  floatHeight: 2
+  liftForce: 1
+  damping: 2
 --- !u!120 &355787610
 LineRenderer:
   serializedVersion: 2
