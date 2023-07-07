@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using Random = System.Random;
 public class Move : MonoBehaviour
 {
     //input obj
@@ -13,17 +14,21 @@ public class Move : MonoBehaviour
 
     //input var
     public float power = 10f;
-    public float _speed;
-    public float _jump;
     public Vector2 minPower;
     public Vector2 maxPower;
-    
-    
 
-    public float floatHeight;     // Desired floating height.
-    public float liftForce;       // Force to apply when lifting the rigidbody.
-    public float damping;         // Force reduction proportional to speed (reduces bouncing).
+    public int max_speed = 10;
+    public int min_speed = 1;
+    public int max_rot = 10;
+    public int min_rot = 1;
+    public int max_size = 3;
+    public int min_size = 1;
 
+    public float _speed;
+    public float _rot;
+    public float _size;
+
+    private bool _isSelected = false;
 
     TrajectoryLine tl;
 
@@ -32,7 +37,6 @@ public class Move : MonoBehaviour
 
 
     bool _isGrounded = true;
-    private bool _isCharge = false;
     
 
 
@@ -42,31 +46,26 @@ public class Move : MonoBehaviour
     private Camera cam;
 
 
-    
+    Random r = new Random();
+
     void Start()
     {
 
+        _size = r.Next(min_size, max_size);
+        _speed = r.Next(min_speed, max_speed);
+        _rot = r.Next(min_rot, max_rot);
+
+        transform.localScale += new Vector3(_size, _size, 0); ;
+        
         cam = Camera.main;
         tl = GetComponent<TrajectoryLine>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _isCharge = !_isCharge;
-          
-        }
-
-        if (!_isCharge)
-        {
             Movement();
-        }
-        else
-        {
-            Charge();
-        }
-
+  
+           if(_isSelected)Charge();
     }
 
 
@@ -75,6 +74,7 @@ public class Move : MonoBehaviour
     {
         if (_isGrounded)
         {
+            _speed = 0;
             if (Input.GetMouseButtonDown(0))
             {
                 startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -98,45 +98,26 @@ public class Move : MonoBehaviour
                 rb.AddForce(force * power, ForceMode2D.Impulse);
                 tl.EndLine();
                 _isGrounded = false;
+                _isSelected = false;
             }
         }
     }
 
     void Movement()
     {
-
-        //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W))
-        {
-            if (_isGrounded)
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, _jump);
-                _isGrounded = false;
-            }
-        }
-
-        _moveVelocity = 0;
-
-        //Left Right Movement
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            _moveVelocity = -_speed;
-        }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            _moveVelocity = _speed;
-        }
-
-        GetComponent<Rigidbody2D>().velocity = new Vector2(_moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
-
-
+        transform.position += Vector3.left * _speed / 1000;
+        transform.Rotate(0, 0, _rot * Time.deltaTime); 
     }
 
     //Check if Grounded
     void OnCollisionEnter2D()
     {
         _isGrounded = true;
-        _isCharge = false;
+    }
+
+    void OnMouseDown()
+    {
+        _isSelected = true;
     }
     
 }
