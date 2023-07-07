@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NES - Super Mario Bros - Enemies & Bosses_0: 340790383953342548
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
