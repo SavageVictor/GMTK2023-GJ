@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -167,13 +167,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3038821223589751270}
   power: 2
-  _speed: 5
-  _jump: 5
   minPower: {x: -8, y: -8}
   maxPower: {x: 8, y: 8}
-  floatHeight: 2
-  liftForce: 1
-  damping: 2
+  max_speed: 10
+  min_speed: 1
+  max_rot: 10
+  min_rot: 1
+  max_size: 5
+  min_size: 1
+  _speed: 5
+  _rot: 0
+  _size: 0
 --- !u!120 &75382219257540100
 LineRenderer:
   serializedVersion: 2
