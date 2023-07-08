@@ -467,6 +467,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats_ship: {fileID: 701135375}
   _ship: {fileID: 812345966}
+  chargeToBlink: 1
+  _timeer: 5
+  _time: 0
 --- !u!1 &473195868
 GameObject:
   m_ObjectHideFlags: 0

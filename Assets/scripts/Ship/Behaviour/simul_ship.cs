@@ -28,10 +28,14 @@ public class simul_ship : MonoBehaviour
         Debug.Log("Sempi entered on my collider");
     }*/
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
        // Debug.Log("Sempi entered on my collider");
-        TakeDamage(10); //TODO Fix damage
+       if (collider.tag == "asteroid")
+       {    
+           TakeDamage(collider.GetComponent<Stats>().GetDamage()); //TODO Fix damage
+           //Debug.Log("Sempi entered on my collider");
+        }
     }
 
     private void TakeDamage(float damage)

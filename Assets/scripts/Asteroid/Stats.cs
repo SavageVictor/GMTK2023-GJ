@@ -54,6 +54,6 @@ public class Stats : MonoBehaviour
 
     public float GetDamage()
     {
-        return _size * (maxHealth - health) / 100;
+        return _size * (maxHealth + health)/maxHealth * 10;
     }
 }
