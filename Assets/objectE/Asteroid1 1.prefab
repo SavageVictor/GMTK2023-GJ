@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImpactExplosion: {fileID: 7085268401036142489, guid: 0955b777f43b08740bd42eea59c62ffd, type: 3}
-  camDethBorder: 100
+  camDethBorder: 200
   colis: {fileID: 1454627790655066997}
   babch1:
   - {fileID: 8300000, guid: 5ba5fbe5dff93d248821bcecdc6624d1, type: 3}

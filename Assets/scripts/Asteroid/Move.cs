@@ -39,6 +39,8 @@ public class Move : MonoBehaviour
 
     void Start()
     {
+
+        cam = Camera.main;
         _stats = new Stats();
 
         _stats = GetComponent<Stats>();
