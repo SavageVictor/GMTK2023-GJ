@@ -37,11 +37,11 @@ public class Blink_ship : MonoBehaviour
             Debug.Log("He try to enter in my collider");
             if (UnityEngine.Random.Range(0, 2) == 0)
             {
-                _ship.transform.position = _ship.transform.position + Vector3.up * 5;
+                _ship.transform.position = _ship.transform.position + Vector3.up * 4.5f;
             }
             else
             {
-                _ship.transform.position =  _ship.transform.position + Vector3.down * 5;
+                _ship.transform.position =  _ship.transform.position + Vector3.down * 4.5f;
             }
 
             chargeToBlink = false;
