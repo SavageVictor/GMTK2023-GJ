@@ -573,7 +573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682357772}
   - component: {fileID: 682357773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 701135374}
   - component: {fileID: 701135376}
   - component: {fileID: 701135377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LiveSimul
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 812345968}
   - component: {fileID: 812345971}
   - component: {fileID: 812345972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIeyLHlhaXwIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yVl3snedg0heyBQIVu5+CLsMVYhSy49eBb/viPZxo73hOjpmelpjXwjTOgCYiPVUrFkJRMgP3vEncmPXhN8gzPdS7FlV6g5XywxmSNRz/mghknEBy5NyxyMYvEvseeOHCBoBUulyhfJHkKpjUY4pVwDhpQ0LlsgdOuRM/70X1zKBU/DmTtd8fQS9O54jEEYUA11MKqYNa+kWRFzmheQOM0Ne/yoW9IETlMxgqfhxNWXnDNdqSHmUvhpQ1poi7MgIWEUp/MSgqcZAhmwfWZczXb6Ok01mEqXopc5U2hTWZf8lqV3OdWHUtyRcus6TcdeV1lz9V+4P/DhVMn8rW47CFwLk7H48EEvMdWm5W0bnjfKB96iE+UHuuPwlYF4l0slrUgwaJR1qVbDcN78fUwWZhAfGryU2gFt0XgedC7IzXD3w59DzvKdN3JcAlsuveH+/kHh7fxBwX47dFUCUafir4ZPum+vURV4ZUobDFVTCidvJ61yVLLwnrlprAmlEuDhSnQBgnJz2WAZ073BTqzVthN5pe7BVM2rWP0OOikebvhB0Alt5OlxWTqTpxXobG0NZwIa0S7wjj6FUohywdqe1Glbq1Iat9L2liXfV4u8TMbxNJ0NnwM6HE1T6A+DySDYpc+jyQhmdAzE7x4TOCflm1JoZQ/emmiKC9yz+jvSWypa+GVPFD0t2TWXLcuZSOU2VgBi/a2CBoU98GEmi4ShP1swhgl/3eQWES7jAyTRgx/5QRdno2jUTB+Rgh2lcUhEQv/diIiDH6u8UXBkcHK962J3cv8HUEsDBBQAAAgIAAAIIezzo5iTbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSpalJslmauZGFQaKRsVlaqq6RgamhQVKahbGpcap5okmqUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeyLHlhaXwIAABYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIezzo5iTbQAAAHgAAAAJACQAAAAAAAAAAAAAAKwCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZAMAAAAA
+    dataString: UEsDBBQAAAgIAAAQIeyLHlhaXwIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yVl3snedg0heyBQIVu5+CLsMVYhSy49eBb/viPZxo73hOjpmelpjXwjTOgCYiPVUrFkJRMgP3vEncmPXhN8gzPdS7FlV6g5XywxmSNRz/mghknEBy5NyxyMYvEvseeOHCBoBUulyhfJHkKpjUY4pVwDhpQ0LlsgdOuRM/70X1zKBU/DmTtd8fQS9O54jEEYUA11MKqYNa+kWRFzmheQOM0Ne/yoW9IETlMxgqfhxNWXnDNdqSHmUvhpQ1poi7MgIWEUp/MSgqcZAhmwfWZczXb6Ok01mEqXopc5U2hTWZf8lqV3OdWHUtyRcus6TcdeV1lz9V+4P/DhVMn8rW47CFwLk7H48EEvMdWm5W0bnjfKB96iE+UHuuPwlYF4l0slrUgwaJR1qVbDcN78fUwWZhAfGryU2gFt0XgedC7IzXD3w59DzvKdN3JcAlsuveH+/kHh7fxBwX47dFUCUafir4ZPum+vURV4ZUobDFVTCidvJ61yVLLwnrlprAmlEuDhSnQBgnJz2WAZ073BTqzVthN5pe7BVM2rWP0OOikebvhB0Alt5OlxWTqTpxXobG0NZwIa0S7wjj6FUohywdqe1Glbq1Iat9L2liXfV4u8TMbxNJ0NnwM6HE1T6A+DySDYpc+jyQhmdAzE7x4TOCflm1JoZQ/emmiKC9yz+jvSWypa+GVPFD0t2TWXLcuZSOU2VgBi/a2CBoU98GEmi4ShP1swhgl/3eQWES7jAyTRgx/5QRdno2jUTB+Rgh2lcUhEQv/diIiDH6u8UXBkcHK962J3cv8HUEsDBBQAAAgIAAAQIezzo5iTbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSpalJslmauZGFQaKRsVlaqq6RgamhQVKahbGpcap5okmqUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAQIeyLHlhaXwIAABYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAQIezzo5iTbQAAAHgAAAAJACQAAAAAAAAAAAAAAKwCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZAMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1596,7 +1596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121815365}
   - component: {fileID: 2121815366}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
