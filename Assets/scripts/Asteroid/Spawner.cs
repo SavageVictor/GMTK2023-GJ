@@ -35,6 +35,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+
         topRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
         bottomRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane));
     }
