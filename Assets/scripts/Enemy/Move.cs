@@ -31,12 +31,8 @@ public class Move : MonoBehaviour
     private bool _isSelected = false;
 
     TrajectoryLine tl;
-
-    float _moveVelocity;
-
-
-
-    bool _isGrounded = true;
+    
+    
     
 
 
@@ -72,8 +68,7 @@ public class Move : MonoBehaviour
     
     void Charge()
     {
-        if (_isGrounded)
-        {
+        
             _speed = 0;
             if (Input.GetMouseButtonDown(0))
             {
@@ -97,14 +92,26 @@ public class Move : MonoBehaviour
                     Math.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
                 rb.AddForce(force * power, ForceMode2D.Impulse);
                 tl.EndLine();
-                _isGrounded = false;
                 _isSelected = false;
             }
-        }
+        
     }
 
     void Movement()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (transform.position.x + _size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).x &&
+                transform.position.x - _size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).x &&
+                transform.position.y + _size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).y &&
+                transform.position.y - _size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
+            {
+
+                _isSelected = true;
+               // Debug.Log("Uhu");
+            }
+        }
+
         transform.position += Vector3.left * _speed / 1000;
         transform.Rotate(0, 0, _rot * Time.deltaTime); 
     }
@@ -112,12 +119,27 @@ public class Move : MonoBehaviour
     //Check if Grounded
     void OnCollisionEnter2D()
     {
-        _isGrounded = true;
+       // _isGrounded = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Deth")
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnMouseDown()
     {
-        _isSelected = true;
     }
-    
+   /* private void OnMouseOver()
+    {
+        if (!Input.GetMouseButtonDown(0)) return;
+
+        _isSelected = true;
+        Debug.Log("Uhu");
+        // Your logic here.
+    }*/
+
 }
