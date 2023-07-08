@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3350364675900650954}
+  col: {fileID: 60777109213358285}
   power: 2
   minPower: {x: -8, y: -8}
   maxPower: {x: 8, y: 8}
@@ -197,14 +198,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b14ed250c44d045bb68a0a4f0022bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSelected: 0
+  _WasSelected: 0
   max_speed: 10
   min_speed: 1
   max_rot: 10
   min_rot: 1
   max_size: 3
   min_size: 1
+  maxHealth: 0
   helth_per_scale: 100
-  helth: 66.666664
+  health: 0
   _speed: 3
   _speed_mem: 3
   _rot: 3

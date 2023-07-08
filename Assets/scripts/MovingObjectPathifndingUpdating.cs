@@ -6,27 +6,40 @@ public class MovingObjectPathfindingUpdating : MonoBehaviour
 {
     public List<GameObject> movingObjects;
 
+    public float Timer = 5;
+    public float time = 5;
+
+
     void Update()
     {
-        foreach (GameObject obj in movingObjects)
+        if (time <= 0)
         {
-            if (obj != null)
+            foreach (GameObject obj in movingObjects)
             {
-                Collider2D collider = obj.GetComponentInChildren<Collider2D>();
-                if (collider != null)
+                if (obj != null)
                 {
-                    Bounds bounds = collider.bounds;
-                    AstarPath.active.UpdateGraphs(bounds);
+                    Collider2D collider = obj.GetComponentInChildren<Collider2D>();
+                    if (collider != null)
+                    {
+                        Bounds bounds = collider.bounds;
+                        AstarPath.active.UpdateGraphs(bounds);
+                    }
+                    else
+                    {
+                        Debug.LogError("No 2D collider attached to the GameObject " + obj.name);
+                    }
                 }
                 else
                 {
-                    Debug.LogError("No 2D collider attached to the GameObject " + obj.name);
+                    //movingObjects.Remove(obj);
                 }
             }
-            else
-            {
-                //movingObjects.Remove(obj);
-            }
+
+            time = Timer;
+        }
+        else
+        {
+            time -= Time.deltaTime;
         }
     }
 

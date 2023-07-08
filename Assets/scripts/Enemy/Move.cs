@@ -13,7 +13,7 @@ public class Move : MonoBehaviour
 
     //input obj
     public Rigidbody2D rb;
-    public CapsuleCollider2D col;
+   // public CapsuleCollider2D col;
 
    private Stats _stats;
     //input var
