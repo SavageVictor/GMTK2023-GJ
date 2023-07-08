@@ -6,7 +6,7 @@ public class MovingObjectPathfindingUpdating : MonoBehaviour
 {
     public List<GameObject> movingObjects;
 
-    void Update()
+    void FixedUpdate()
     {
         foreach (GameObject obj in movingObjects)
         {
