@@ -14,6 +14,10 @@ public class fire_ship : MonoBehaviour
     public GameObject fire_point;
     public GameObject bullet;
 
+
+    public AudioSource aud;
+    public AudioClip[] Shoot;
+
     public float time = 0;
     // Start is called before the first frame update
     void Start()
@@ -62,6 +66,8 @@ public class fire_ship : MonoBehaviour
    
     private void Fire()
     {
+
+        aud.PlayOneShot(Shoot[UnityEngine.Random.Range(0, Shoot.Length)], 1);
         Instantiate(bullet, fire_point.transform.position, Quaternion.identity);
     }
 }

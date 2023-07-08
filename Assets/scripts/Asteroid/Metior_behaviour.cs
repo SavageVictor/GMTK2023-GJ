@@ -85,8 +85,7 @@ public class Metior_behaviour : MonoBehaviour
     {
 
          colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
-        if (coll.collider.tag == "asteroid")
-       
+        if (coll.tag == "asteroid")
         {
             _stats.health -= 10;
         }
@@ -97,7 +96,7 @@ public class Metior_behaviour : MonoBehaviour
             Deth();
         }
 
-        if (coll.collider.tag == "bullet")
+        if (coll.tag == "bullet")
         {
             
         }
