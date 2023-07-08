@@ -843,6 +843,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5660423824520405130, guid: 828967a7048d84441ada358f0de6b5a4, type: 3}
   m_PrefabInstance: {fileID: 1372923948}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &812345966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1588646728946294937, guid: aa184422c8cacbc45a0e3e0cffd21c07, type: 3}
+  m_PrefabInstance: {fileID: 3288647101231942526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &887584470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5660423824520405130, guid: 828967a7048d84441ada358f0de6b5a4, type: 3}
@@ -2140,6 +2145,18 @@ PrefabInstance:
       propertyPath: _slider
       value: 
       objectReference: {fileID: 151652706}
+    - target: {fileID: 5766815020996213925, guid: aa184422c8cacbc45a0e3e0cffd21c07, type: 3}
+      propertyPath: destoyedParts
+      value: 
+      objectReference: {fileID: 6129957703687323489, guid: 995fc2d3a9ccefd45aae70c62079b898, type: 3}
+    - target: {fileID: 5766815020996213925, guid: aa184422c8cacbc45a0e3e0cffd21c07, type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 6630982110982626872, guid: ee0c800e68832364d8a4088463a90e3b, type: 3}
+    - target: {fileID: 5766815020996213925, guid: aa184422c8cacbc45a0e3e0cffd21c07, type: 3}
+      propertyPath: ParentGameObject
+      value: 
+      objectReference: {fileID: 812345966}
     - target: {fileID: 8013980270895098558, guid: aa184422c8cacbc45a0e3e0cffd21c07, type: 3}
       propertyPath: ParseSafestPoint
       value: 
