@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
-    //TODO  need to siparate helth logick and move
+    //TODO  need to siparate health logick and move
 
     //input obj
     public Rigidbody2D rb;
@@ -21,7 +21,6 @@ public class Move : MonoBehaviour
     public Vector2 minPower;
     public Vector2 maxPower;
 
-    private bool _isSelected = false;
 
     TrajectoryLine tl;
     
@@ -52,8 +51,8 @@ public class Move : MonoBehaviour
     void Update()
     {
             Movement();
-  
-           if(_isSelected)Charge();
+
+        if  (_stats._isSelected)Charge();
     }
 
 
@@ -84,7 +83,7 @@ public class Move : MonoBehaviour
                     Math.Clamp(startPoint.y - endPoint.y,minPower.y, maxPower.y));
                 rb.AddForce(force * power * _stats._speed_mem  / _stats._size / 2, ForceMode2D.Impulse);
                 tl.EndLine();
-                _isSelected = false;
+            _stats._isSelected = false;
             }
         
     }
@@ -99,7 +98,7 @@ public class Move : MonoBehaviour
                 transform.position.y - _stats._size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
             {
 
-                _isSelected = true;
+                _stats._isSelected = true;
                // Debug.Log("Uhu");
             }
         }

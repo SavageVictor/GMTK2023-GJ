@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class Metior_behaviour : MonoBehaviour
-{
+{/*
+    public Slider _slider;
+    public GameObject _sliderObj;
+*/
     private Move camObj;
+    private Stats _stats;
 
     public int camDethBorder = 10;
 
@@ -16,19 +23,32 @@ public class Metior_behaviour : MonoBehaviour
     void Start()
     {
         camObj = GetComponent<Move>();
+        _stats  = GetComponent<Stats>();
+
+     /*   _slider.value = _stats.maxHealth;
+        _sliderObj.active = false;*/
 
     }
 
     // Update is called once per frame
     void Update()
     {
+      /*  if (_stats._isSelected)
+        {
+            _sliderObj.active = true;
+        }
+        else
+        {
+            _sliderObj.active = false;
+        }*/
 
-        topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight, camObj.cam.nearClipPlane));
+        topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
+            camObj.cam.nearClipPlane));
         bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
-        amIDeth();
+        amIDead();
     }
 
-    private void amIDeth()
+    private void amIDead()
     {
         if (transform.position.x > bottomLeft.x + camDethBorder ||
             transform.position.x < topRight.x - camDethBorder ||
@@ -38,14 +58,22 @@ public class Metior_behaviour : MonoBehaviour
         {
             Deth();
         }
+
+        if (_stats.health <= 0)
+        {
+            Deth();
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        if (other.tag == "Deth")
+        
+        if (coll.collider.tag == "asteroid")
         {
-            Destroy(gameObject);
+            _stats.health -= 10;
         }
+
+      //  _slider.value = _stats.health;
     }
 
     public void Deth()
