@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//using Random = System.Random;
 public class Spawner : MonoBehaviour
 {
     public Camera cam;
 
     public GameObject enemyPrefab;
+
+    public List<Sprite> asteroidSprites; // asteroid sprites
 
     private Vector3 topRight;
     private Vector3 bottomRight;
@@ -19,13 +20,11 @@ public class Spawner : MonoBehaviour
     [System.Serializable]
     public class Wave
     {
-        //public GameObject enemyPrefab;
         public int count;
         public float rate;
     }
 
     public Wave[] waves;
-    //public Transform spawnPoint;
 
     private void Start()
     {
@@ -52,7 +51,6 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < wave.count; i++)
         {
-           // SpawnEnemy(wave.enemyPrefab);
             SpawnEnemy(enemyPrefab);
             yield return new WaitForSeconds(1f / wave.rate);
         }
@@ -61,8 +59,25 @@ public class Spawner : MonoBehaviour
     private void SpawnEnemy(GameObject enemy)
     {
         GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight + Vector3.right * 1, bottomRight + Vector3.right * 1), Quaternion.identity);
-        movingObjectPathifndingUpdating.movingObjects.Add(asteroid);
 
+        // Assign a random sprite to the newly instantiated asteroid
+        SpriteRenderer asteroidSpriteRenderer = asteroid.GetComponent<SpriteRenderer>();
+        if (asteroidSpriteRenderer != null && asteroidSprites.Count > 0)
+        {
+            int randomIndex = Random.Range(0, asteroidSprites.Count);
+            asteroidSpriteRenderer.sprite = asteroidSprites[randomIndex];
+        }
+
+        // Adjust the polygon collider to match the sprite
+        PolygonCollider2D asteroidCollider = asteroid.GetComponent<PolygonCollider2D>();
+        if (asteroidCollider != null)
+        {
+            Destroy(asteroidCollider);
+        }
+        asteroidCollider = asteroid.AddComponent<PolygonCollider2D>();
+        asteroidCollider.excludeLayers += LayerMask.GetMask("Obstacle");
+
+        movingObjectPathifndingUpdating.movingObjects.Add(asteroid);
     }
 
     Vector3 GetRandomPosition(Vector3 a, Vector3 b)
@@ -70,6 +85,4 @@ public class Spawner : MonoBehaviour
         float t = Random.Range(0f, 1f);
         return Vector3.Lerp(a, b, t);
     }
-
- 
 }

@@ -14,6 +14,8 @@ public class Metior_behaviour : MonoBehaviour
     public Slider _slider;
     public GameObject _sliderObj;
 */
+    public GameObject ImpactExplosion;
+
     private Move camObj;
     private Stats _stats;
     
@@ -103,6 +105,7 @@ public class Metior_behaviour : MonoBehaviour
 
     public void Deth()
     {
+        Instantiate(ImpactExplosion, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
