@@ -16,6 +16,7 @@ public class Metior_behaviour : MonoBehaviour
 */
     private Move camObj;
     private Stats _stats;
+    
 
     public int camDethBorder = 10;
 
@@ -89,6 +90,12 @@ public class Metior_behaviour : MonoBehaviour
         if (coll.collider.tag == "asteroid")
         {
             _stats.health -= 10;
+        }
+
+        if (coll.collider.tag == "Player")
+        {
+            //coll.collider.SendMessage("TakeDamage", _stats.GetDamage()); 
+            Deth();
         }
 
       //  _slider.value = _stats.health;

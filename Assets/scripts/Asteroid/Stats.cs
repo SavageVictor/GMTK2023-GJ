@@ -52,4 +52,8 @@ public class Stats : MonoBehaviour
         maxHealth = health;
     }
 
+    public float GetDamage()
+    {
+        return _size * (maxHealth - health) / 100;
+    }
 }
