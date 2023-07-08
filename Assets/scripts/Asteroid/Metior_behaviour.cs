@@ -45,15 +45,6 @@ public class Metior_behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      /*  if (_stats._isSelected)
-        {
-            _sliderObj.active = true;
-        }
-        else
-        {
-            _sliderObj.active = false;
-        }*/
-
         topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
             camObj.cam.nearClipPlane));
         bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
@@ -88,7 +79,7 @@ public class Metior_behaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        
+
         if (coll.collider.tag == "asteroid")
         {
             _stats.health -= 10;
@@ -100,7 +91,16 @@ public class Metior_behaviour : MonoBehaviour
             Deth();
         }
 
-      //  _slider.value = _stats.health;
+        if (coll.collider.tag == "bullet")
+        {
+            
+        }
+    //  _slider.value = _stats.health;
+    }
+
+    void TakeDamage(int damage)
+    {
+        _stats.health -= damage;
     }
 
     public void Deth()
