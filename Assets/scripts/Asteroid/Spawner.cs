@@ -60,24 +60,33 @@ public class Spawner : MonoBehaviour
     {
         GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight + Vector3.right * 1, bottomRight + Vector3.right * 1), Quaternion.identity);
 
-        // Assign a random sprite to the newly instantiated asteroid
-        SpriteRenderer asteroidSpriteRenderer = asteroid.GetComponent<SpriteRenderer>();
-        if (asteroidSpriteRenderer != null && asteroidSprites.Count > 0)
-        {
-            int randomIndex = Random.Range(0, asteroidSprites.Count);
-            asteroidSpriteRenderer.sprite = asteroidSprites[randomIndex];
-        }
-
-        // Adjust the polygon collider to match the sprite
-        PolygonCollider2D asteroidCollider = asteroid.GetComponent<PolygonCollider2D>();
+        // Adjust the circle collider to match the sprite
+        CircleCollider2D asteroidCollider = asteroid.GetComponent<CircleCollider2D>();
         if (asteroidCollider != null)
         {
             Destroy(asteroidCollider);
         }
-        asteroidCollider = asteroid.AddComponent<PolygonCollider2D>();
-        asteroidCollider.excludeLayers += LayerMask.GetMask("Obstacle");
+        asteroidCollider = asteroid.AddComponent<CircleCollider2D>();
+
+        // Assuming your GameObject has a SpriteRenderer
+        SpriteRenderer spriteRenderer = asteroid.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null && asteroidSprites.Count > 0)
+        {
+            int randomIndex = Random.Range(0, asteroidSprites.Count);
+            spriteRenderer.sprite = asteroidSprites[randomIndex];
+        }
+
+        if (spriteRenderer != null)
+        {
+            // Get the size of the sprite
+            float spriteSize = spriteRenderer.bounds.size.x;
+
+            // Set the radius of the CircleCollider2D based on the size of the sprite
+            asteroidCollider.radius = spriteSize / 2.0f;
+        }
 
         movingObjectPathifndingUpdating.movingObjects.Add(asteroid);
+
     }
 
     Vector3 GetRandomPosition(Vector3 a, Vector3 b)

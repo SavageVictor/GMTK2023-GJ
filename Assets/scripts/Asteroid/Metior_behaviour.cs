@@ -105,8 +105,16 @@ public class Metior_behaviour : MonoBehaviour
 
     public void Deth()
     {
-        Instantiate(ImpactExplosion, gameObject.transform.position, Quaternion.identity);
+        // Instantiate ImpactExplosion
+        GameObject explosionInstance = Instantiate(ImpactExplosion, gameObject.transform.position, Quaternion.identity);
+
+        // Match the scale of the parent gameObject
+        explosionInstance.transform.localScale = gameObject.transform.localScale;
+
+        // Destroy the parent object
         Destroy(gameObject);
     }
+
+
 
 }
