@@ -12,6 +12,11 @@ public class Spawner : MonoBehaviour
     private Vector3 topRight;
     private Vector3 bottomRight;
 
+    private bool WaweStart = false;
+
+    public float _timeer = 2;
+    public float _time;
+
     float timer = 10f; // countdown starts at 10 seconds
 
     private MovingObjectPathfindingUpdating movingObjectPathifndingUpdating;
@@ -30,11 +35,21 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         movingObjectPathifndingUpdating = GetComponent<MovingObjectPathfindingUpdating>();
-        StartCoroutine(SpawnAllWaves());
+      
     }
 
     void Update()
     {
+        if (_time >= _timeer && !WaweStart)
+        {
+            WaweStart = true;
+            StartCoroutine(SpawnAllWaves());
+            //_time = 0;
+        }
+        else
+        {
+            _time += Time.deltaTime;
+        }
 
         topRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
         bottomRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane));
