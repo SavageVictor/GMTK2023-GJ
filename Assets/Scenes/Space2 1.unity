@@ -144,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128203555}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.22, y: -0.02, z: 0}
+  m_LocalPosition: {x: 1.4, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 3261434178500912689, guid: 9a4d80df5cf6cea4da1fd6676a6dfc28, type: 3}
+      objectReference: {fileID: 3261434178500912689, guid: 38cd1031af0f90842bbcaccf556e8e27, type: 3}
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: waves.Array.data[0].rate
       value: 0.5
@@ -555,6 +555,34 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].count
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
+      propertyPath: asteroidSprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
+      propertyPath: 'asteroidSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -5562785595910269535, guid: 0e13c9dd2e418c445be8ab3e80808305, type: 3}
+    - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
+      propertyPath: 'asteroidSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -7197702783637013416, guid: 0873d42f1464d7446b7fa0a66ddc6354, type: 3}
+    - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
+      propertyPath: 'asteroidSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -2674403585074035621, guid: 71442254fb89a2c4a9d31dcbc5dcbbb3, type: 3}
+    - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
+      propertyPath: 'asteroidSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: -4201717046963032185, guid: 887bbafa2e4e99447bea5da607f4e1ea, type: 3}
+    - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
+      propertyPath: 'asteroidSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: -7668923980875877298, guid: 218ed815934c6f945a8204f77fc92276, type: 3}
+    - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
+      propertyPath: 'asteroidSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: -9181639578359185712, guid: 29efe17d9f345f540b336b323498ee75, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -563,7 +591,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1539806703}
   m_SourcePrefab: {fileID: 100100000, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
---- !u!1 &682357771
+--- !u!1 &627674278
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -571,37 +599,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 682357772}
-  - component: {fileID: 682357773}
-  m_Layer: 7
-  m_Name: Triangle
+  - component: {fileID: 627674279}
+  - component: {fileID: 627674280}
+  m_Layer: 0
+  m_Name: Spaceship_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &682357772
+--- !u!4 &627674279
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682357771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_GameObject: {fileID: 627674278}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.046, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 812345967}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &682357773
+--- !u!212 &627674280
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682357771}
+  m_GameObject: {fileID: 627674278}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -641,7 +669,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.2220001, y: 2.1599998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -788,7 +816,6 @@ GameObject:
   - component: {fileID: 812345969}
   - component: {fileID: 812345968}
   - component: {fileID: 812345971}
-  - component: {fileID: 812345972}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Player
@@ -808,7 +835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 682357772}
+  - {fileID: 627674279}
   - {fileID: 2121815365}
   - {fileID: 701135373}
   m_Father: {fileID: 0}
@@ -841,7 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.2
+  radius: 0.5
   height: 0.4
   canMove: 1
   maxSpeed: 10
@@ -858,8 +885,8 @@ MonoBehaviour:
     mode: 1
     interval: 0.1
     sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
+    maximumInterval: 0.5
+    visualizeSensitivity: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -934,22 +961,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.006049216}
   m_Radius: 0.20963782
---- !u!114 &812345972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812345966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0ac210f47e7f648b0e50dbd6a58e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fixationSpeed: 1
-  speedX: -10
-  targetX: 0
-  targetY: 0
 --- !u!1 &926083679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,7 +1524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIeyLHlhaXwIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yVl3snedg0heyBQIVu5+CLsMVYhSy49eBb/viPZxo73hOjpmelpjXwjTOgCYiPVUrFkJRMgP3vEncmPXhN8gzPdS7FlV6g5XywxmSNRz/mghknEBy5NyxyMYvEvseeOHCBoBUulyhfJHkKpjUY4pVwDhpQ0LlsgdOuRM/70X1zKBU/DmTtd8fQS9O54jEEYUA11MKqYNa+kWRFzmheQOM0Ne/yoW9IETlMxgqfhxNWXnDNdqSHmUvhpQ1poi7MgIWEUp/MSgqcZAhmwfWZczXb6Ok01mEqXopc5U2hTWZf8lqV3OdWHUtyRcus6TcdeV1lz9V+4P/DhVMn8rW47CFwLk7H48EEvMdWm5W0bnjfKB96iE+UHuuPwlYF4l0slrUgwaJR1qVbDcN78fUwWZhAfGryU2gFt0XgedC7IzXD3w59DzvKdN3JcAlsuveH+/kHh7fxBwX47dFUCUafir4ZPum+vURV4ZUobDFVTCidvJ61yVLLwnrlprAmlEuDhSnQBgnJz2WAZ073BTqzVthN5pe7BVM2rWP0OOikebvhB0Alt5OlxWTqTpxXobG0NZwIa0S7wjj6FUohywdqe1Glbq1Iat9L2liXfV4u8TMbxNJ0NnwM6HE1T6A+DySDYpc+jyQhmdAzE7x4TOCflm1JoZQ/emmiKC9yz+jvSWypa+GVPFD0t2TWXLcuZSOU2VgBi/a2CBoU98GEmi4ShP1swhgl/3eQWES7jAyTRgx/5QRdno2jUTB+Rgh2lcUhEQv/diIiDH6u8UXBkcHK962J3cv8HUEsDBBQAAAgIAAAQIezzo5iTbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSpalJslmauZGFQaKRsVlaqq6RgamhQVKahbGpcap5okmqUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAQIeyLHlhaXwIAABYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAQIezzo5iTbQAAAHgAAAAJACQAAAAAAAAAAAAAAKwCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZAMAAAAA
+    dataString: UEsDBBQAAAgIAAAQIezn9CV1YwIAABsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5w1l3rC3XYeQPRCokK1cfBH2GKuQJZcevFL8+45kGzveE6KnZ6anNfIXYUIXEBupVoola5kA+dkj7kx+9JrgK1zoQYodu0HN+WSJyRyJes47NUwiPnBpWuZgFIt/iQN35ABBK1gqVb5MDhBKbTTCKeUaMKSkcdkCoa8eueDP08KlXPE0nLnTDU+LoHfHYwzCgGqow/5oHswXFb0ml1wrYk7zAhInvJUyqYtPPE3gSBUj6PtgLDlnupJEzLXwI4e00BYHQkLCKI7odQT9GQIZsENmXM12+iZNNZhKl6LXZ6bQq7Iu+S1LA3Oqj6W4E+XWdZqOva6y5vq/8NPAh1Ml89e67SBwLUzG4uM7vcZUm5bBbfi5UT7wFp0pP9I9h88MxJtcKWlFgkGjrEu1GobPzd/HZGEG8bHBS6kd0BaN50HngtwMdz/8JeQs33sjxyWw49Ib7pcAFN7OHxTsV0RXJRB1Kv5q+KCH9i5VgRemtMFQNaVw8vbSKkclS++Zm8aaUCoBHq5EFyAoN9ctljHdG+zEWm07kRfqXk3VvIrVj6GT4uGGHwSd0FaeH5elM3leg8421nAmoBHtAm/oUyiFKBes7UmdtrMqpXEr7WBZ8n21yGIyjqfpbDgP6HA0TeFpGEwGwT6djyYjmNExEL97TOCclG9LoZU9eGuiKS5wz+qPSW+laOGXPVH0vGK3XLYsZyKVu1gBiM23ChoU9sCHmSwThv7swBgm/HWTr4hwGR8hiR78yA+6vBhFo2b6iBTsJI1DIhL6j0dEHPxY5a2CE4Oz610Xu5P7P1BLAwQUAAAICAAAECHs86OYk20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kqWpSbJZmrmRhUGikbFZWqqukYGpoUFSmoWxqXGqeaJJqlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAECHs5/QldWMCAAAbBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAECHs86OYk20AAAB4AAAACQAkAAAAAAAAAAAAAACwAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGgDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1611,7 +1622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121815364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0, z: 0}
+  m_LocalPosition: {x: -0.573, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1631,7 +1642,7 @@ TrailRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
-  m_MotionVectors: 0
+  m_MotionVectors: 2
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
@@ -1670,7 +1681,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.36885452
+        value: 0.24471664
         inSlope: 0
         outSlope: 0
         tangentMode: 0
