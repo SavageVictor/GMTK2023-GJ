@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Deth
+  - mouse
   layers:
   - Default
   - TransparentFX

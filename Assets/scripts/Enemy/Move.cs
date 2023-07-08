@@ -6,27 +6,19 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using Random = System.Random;
 public class Move : MonoBehaviour
 {
+    //TODO  need to siparate helth logick and move
+
     //input obj
     public Rigidbody2D rb;
 
+    public Stats _stats;
     //input var
+
     public float power = 10f;
     public Vector2 minPower;
     public Vector2 maxPower;
-
-    public int max_speed = 10;
-    public int min_speed = 1;
-    public int max_rot = 10;
-    public int min_rot = 1;
-    public int max_size = 3;
-    public int min_size = 1;
-
-    public float _speed;
-    public float _rot;
-    public float _size;
 
     private bool _isSelected = false;
 
@@ -42,16 +34,13 @@ public class Move : MonoBehaviour
     private Camera cam;
 
 
-    Random r = new Random();
 
     void Start()
     {
+        _stats = new Stats();
 
-        _size = r.Next(min_size, max_size);
-        _speed = r.Next(min_speed, max_speed);
-        _rot = r.Next(min_rot, max_rot);
 
-        transform.localScale += new Vector3(_size, _size, 0); ;
+        transform.localScale += new Vector3(_stats._size, _stats._size, 0); ;
         
         cam = Camera.main;
         tl = GetComponent<TrajectoryLine>();
@@ -68,8 +57,8 @@ public class Move : MonoBehaviour
     
     void Charge()
     {
-        
-            _speed = 0;
+
+        _stats._speed = 0;
             if (Input.GetMouseButtonDown(0))
             {
                 startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -89,8 +78,8 @@ public class Move : MonoBehaviour
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPoint.z = 15;
                 force = new Vector2(Math.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x),
-                    Math.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
-                rb.AddForce(force * power, ForceMode2D.Impulse);
+                    Math.Clamp(startPoint.y - endPoint.y,minPower.y, maxPower.y));
+                rb.AddForce(force * power * _stats._speed_mem  / _stats._size / 5, ForceMode2D.Impulse);
                 tl.EndLine();
                 _isSelected = false;
             }
@@ -101,10 +90,10 @@ public class Move : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (transform.position.x + _size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).x &&
-                transform.position.x - _size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).x &&
-                transform.position.y + _size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).y &&
-                transform.position.y - _size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
+            if (transform.position.x + _stats._size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).x &&
+                transform.position.x - _stats._size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).x &&
+                transform.position.y + _stats._size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).y &&
+                transform.position.y - _stats._size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
             {
 
                 _isSelected = true;
@@ -112,8 +101,8 @@ public class Move : MonoBehaviour
             }
         }
 
-        transform.position += Vector3.left * _speed / 1000;
-        transform.Rotate(0, 0, _rot * Time.deltaTime); 
+        transform.position += Vector3.left * (_stats._speed / 1000)/ _stats._size;
+        transform.Rotate(0, 0, _stats._rot * Time.deltaTime); 
     }
 
     //Check if Grounded
