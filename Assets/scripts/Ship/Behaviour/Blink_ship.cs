@@ -6,6 +6,7 @@ public class Blink_ship : MonoBehaviour
 {
     public Stats_ship _stats_ship;
     public GameObject _ship;
+    public GameObject TeleportationEffect;
 
     public bool chargeToBlink = false;
 
@@ -34,6 +35,7 @@ public class Blink_ship : MonoBehaviour
     {
         if (chargeToBlink)
         {
+            Instantiate(TeleportationEffect, _ship.transform.position, Quaternion.identity);
             Debug.Log("He try to enter in my collider");
             if (UnityEngine.Random.Range(0, 2) == 0)
             {
@@ -44,6 +46,7 @@ public class Blink_ship : MonoBehaviour
                 _ship.transform.position =  _ship.transform.position + Vector3.down * 4.5f;
             }
 
+            Instantiate(TeleportationEffect, _ship.transform.position, Quaternion.identity);
             chargeToBlink = false;
         }
     }
