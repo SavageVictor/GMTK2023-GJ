@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class Blink_ship : MonoBehaviour
@@ -12,7 +13,11 @@ public class Blink_ship : MonoBehaviour
 
     public float _timeer = 5;
     public float _time;
-    
+
+
+    public AudioSource aud;
+    public AudioClip[] BlinhClips;
+
     void Start()
     {
     }
@@ -33,6 +38,7 @@ public class Blink_ship : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
+
         if (chargeToBlink)
         {
             Instantiate(TeleportationEffect, _ship.transform.position, Quaternion.identity);
@@ -46,7 +52,11 @@ public class Blink_ship : MonoBehaviour
                 _ship.transform.position =  _ship.transform.position + Vector3.down * 4.5f;
             }
 
+
             Instantiate(TeleportationEffect, _ship.transform.position, Quaternion.identity);
+
+            aud.PlayOneShot(BlinhClips[UnityEngine.Random.Range(0, BlinhClips.Length)], 1);
+
             chargeToBlink = false;
         }
     }
