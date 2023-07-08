@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public GameStateS gameState;
+    
     public Camera cam;
 
     public GameObject enemyPrefab;
@@ -39,19 +41,22 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (_time >= _timeer && !WaweStart)
+        if (gameState.GameIsStart)
         {
-            WaweStart = true;
-            StartCoroutine(SpawnAllWaves());
-            //_time = 0;
-        }
-        else
-        {
-            _time += Time.deltaTime;
-        }
+            if (_time >= _timeer && !WaweStart)
+            {
+                WaweStart = true;
+                StartCoroutine(SpawnAllWaves());
+                //_time = 0;
+            }
+            else
+            {
+                _time += Time.deltaTime;
+            }
 
-        topRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
-        bottomRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane));
+            topRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
+            bottomRight = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, 0, cam.nearClipPlane));
+        }
     }
 
 

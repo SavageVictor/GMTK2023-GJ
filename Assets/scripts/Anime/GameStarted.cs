@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class textAnim : MonoBehaviour
+public class gameInAn : MonoBehaviour
 {
+    public Animator animator;
     //public AnimationClip AnimationClip;
     //public Animation Animation;
     // Start is called before the first frame update
@@ -17,7 +18,7 @@ public class textAnim : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Destroy(gameObject);
+            animator.SetTrigger("IsGameStart");
         }
     }
 }
