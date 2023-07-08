@@ -13,7 +13,7 @@ public class Move : MonoBehaviour
 
     //input obj
     public Rigidbody2D rb;
-    public CapsuleCollider2D col;
+   // public CapsuleCollider2D col;
 
    private Stats _stats;
     //input var
@@ -109,7 +109,7 @@ public class Move : MonoBehaviour
             }
         }
 
-        transform.position += Vector3.left * (_stats._speed / 1000)/ _stats._size;
+        transform.position += Vector3.left * (_stats._speed / 100)/ _stats._size;
         transform.Rotate(0, 0, _stats._rot * Time.deltaTime); 
     }
 

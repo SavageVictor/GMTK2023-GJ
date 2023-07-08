@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.Events;
+
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
@@ -23,9 +24,13 @@ public class Metior_behaviour : MonoBehaviour
     private Vector3 bottomRight;
     private Vector3 bottomLeft;
 
+    private float Timer = 1;
+    private float time = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         camObj = GetComponent<Move>();
         _stats  = GetComponent<Stats>();
 
@@ -54,18 +59,27 @@ public class Metior_behaviour : MonoBehaviour
 
     private void amIDead()
     {
-        if (transform.position.x > bottomLeft.x + camDethBorder ||
-            transform.position.x < topRight.x - camDethBorder / 2 ||
-            transform.position.y > topRight.y + (camDethBorder / 2) ||
-            transform.position.y < bottomLeft.y - (camDethBorder / 2)
-            )
+        if (time <= 0)
         {
-            Deth();
-        }
+            if (transform.position.x > bottomLeft.x + camDethBorder ||
+                transform.position.x < topRight.x - camDethBorder / 2 ||
+                transform.position.y > topRight.y + (camDethBorder / 2) ||
+                transform.position.y < bottomLeft.y - (camDethBorder / 2)
+               )
+            {
+                Deth();
+            }
 
-        if (_stats.health <= 0)
+            if (_stats.health <= 0)
+            {
+                Deth();
+            }
+
+            time = Timer;
+        }
+        else
         {
-            Deth();
+            time -= Time.deltaTime;
         }
     }
 
