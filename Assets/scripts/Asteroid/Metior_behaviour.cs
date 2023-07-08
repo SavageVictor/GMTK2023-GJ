@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,9 @@ public class Metior_behaviour : MonoBehaviour
 
     private float Timer = 1;
     private float time = 0;
+
+    public AudioSource colis;
+    public AudioClip[] babch1;
 
     // Start is called before the first frame update
     void Start()
@@ -84,15 +88,16 @@ public class Metior_behaviour : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        
-        if (coll.collider.tag == "asteroid")
+        colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
+
+        if (coll.tag == "asteroid")
         {
             _stats.health -= 10;
         }
 
-        if (coll.collider.tag == "Player")
+        if (coll.tag == "Player")
         {
             //coll.collider.SendMessage("TakeDamage", _stats.GetDamage()); 
             Deth();

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Deth
   - mouse
+  - asteroid
   layers:
   - Default
   - TransparentFX
