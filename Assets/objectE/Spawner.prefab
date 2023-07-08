@@ -47,5 +47,5 @@ MonoBehaviour:
   cam: {fileID: 0}
   enemyPrefab: {fileID: 7018845834346558838, guid: 170efd03215a45f45a38fa61c39a2e81, type: 3}
   waves:
-  - count: 10
-    rate: 0.5
+  - count: 40
+    rate: 0.7

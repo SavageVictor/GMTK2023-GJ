@@ -62,6 +62,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight, bottomRight), Quaternion.identity);
         movingObjectPathifndingUpdating.movingObjects.Add(asteroid);
+
     }
 
     Vector3 GetRandomPosition(Vector3 a, Vector3 b)
