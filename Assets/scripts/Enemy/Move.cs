@@ -13,6 +13,7 @@ public class Move : MonoBehaviour
 
     //input obj
     public Rigidbody2D rb;
+    public CapsuleCollider2D col;
 
    private Stats _stats;
     //input var
@@ -42,7 +43,8 @@ public class Move : MonoBehaviour
 
         _stats = GetComponent<Stats>();
 
-        transform.localScale += new Vector3(_stats._size, _stats._size, 0); ;
+        transform.localScale += new Vector3(_stats._size, _stats._size, 0); 
+        rb.mass = _stats._size;
         
         cam = Camera.main;
         tl = GetComponent<TrajectoryLine>();
@@ -98,8 +100,12 @@ public class Move : MonoBehaviour
                 transform.position.y - _stats._size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
             {
 
-                _stats._isSelected = true;
-               // Debug.Log("Uhu");
+                if (!_stats._WasSelected)
+                {
+                    _stats._isSelected = true;
+                    _stats._WasSelected = true;
+                }
+                // Debug.Log("Uhu");
             }
         }
 

@@ -12,6 +12,7 @@ public class Stats : MonoBehaviour
 
 
     public bool _isSelected = false;
+    public bool _WasSelected = false;
 
     public int max_speed = 10;
     public int min_speed = 1;

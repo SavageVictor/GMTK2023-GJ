@@ -254,7 +254,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f81048dd07cbcc84db86f254f71b6ab0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3350364675900650954}
+  col: {fileID: 60777109213358285}
   power: 2
   minPower: {x: -8, y: -8}
   maxPower: {x: 8, y: 8}
@@ -337,8 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e3b6f154100234c991d07e407408a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 7237725132606146450}
-  _sliderObj: {fileID: 8280602540615912902}
   camDethBorder: 100
 --- !u!114 &7536132614781726118
 MonoBehaviour:
@@ -353,15 +352,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isSelected: 0
+  _WasSelected: 0
   max_speed: 10
   min_speed: 1
   max_rot: 10
   min_rot: 1
   max_size: 3
   min_size: 1
-  maxHelth: 0
+  maxHealth: 0
   helth_per_scale: 100
-  helth: 66.666664
+  health: 0
   _speed: 3
   _speed_mem: 3
   _rot: 3
@@ -627,7 +627,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8972632935217922113}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

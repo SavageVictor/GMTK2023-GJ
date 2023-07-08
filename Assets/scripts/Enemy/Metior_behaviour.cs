@@ -51,9 +51,9 @@ public class Metior_behaviour : MonoBehaviour
     private void amIDead()
     {
         if (transform.position.x > bottomLeft.x + camDethBorder ||
-            transform.position.x < topRight.x - camDethBorder ||
-            transform.position.y > topRight.y + camDethBorder ||
-            transform.position.y < bottomLeft.y - camDethBorder
+            transform.position.x < topRight.x - camDethBorder / 2 ||
+            transform.position.y > topRight.y + (camDethBorder / 2) ||
+            transform.position.y < bottomLeft.y - (camDethBorder / 2)
             )
         {
             Deth();

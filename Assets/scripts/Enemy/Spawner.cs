@@ -59,7 +59,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemy, GetRandomPosition(topRight, bottomRight), Quaternion.identity);
+        Instantiate(enemy, GetRandomPosition(topRight * 1.5f, bottomRight * 1.5f), Quaternion.identity);
     }
 
     Vector3 GetRandomPosition(Vector3 a, Vector3 b)
