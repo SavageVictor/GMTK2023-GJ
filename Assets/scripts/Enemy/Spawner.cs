@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
 
     float timer = 10f; // countdown starts at 10 seconds
 
-
+    private MovingObjectPathfindingUpdating movingObjectPathifndingUpdating;
 
     [System.Serializable]
     public class Wave
@@ -29,6 +29,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        movingObjectPathifndingUpdating = GetComponent<MovingObjectPathfindingUpdating>();
         StartCoroutine(SpawnAllWaves());
     }
 
@@ -59,7 +60,8 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemy, GetRandomPosition(topRight, bottomRight), Quaternion.identity);
+        GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight, bottomRight), Quaternion.identity);
+        movingObjectPathifndingUpdating.movingObjects.Add(asteroid);
     }
 
     Vector3 GetRandomPosition(Vector3 a, Vector3 b)
