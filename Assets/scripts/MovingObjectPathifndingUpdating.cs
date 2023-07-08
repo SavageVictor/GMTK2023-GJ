@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
-public class MovingObjectPathifndingUpdating : MonoBehaviour
+public class MovingObjectPathfindingUpdating : MonoBehaviour
 {
     public List<GameObject> movingObjects;
 
@@ -10,8 +10,16 @@ public class MovingObjectPathifndingUpdating : MonoBehaviour
     {
         foreach (GameObject obj in movingObjects)
         {
-            Bounds bounds = new Bounds(obj.transform.position, Vector3.one);
-            AstarPath.active.UpdateGraphs(bounds);
+            Collider2D collider = obj.GetComponent<Collider2D>();
+            if (collider != null)
+            {
+                Bounds bounds = collider.bounds;
+                AstarPath.active.UpdateGraphs(bounds);
+            }
+            else
+            {
+                Debug.LogError("No 2D collider attached to the GameObject " + obj.name);
+            }
         }
     }
 }
