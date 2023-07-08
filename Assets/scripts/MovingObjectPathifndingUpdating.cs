@@ -12,7 +12,7 @@ public class MovingObjectPathfindingUpdating : MonoBehaviour
         {
             if (obj != null)
             {
-                Collider2D collider = obj.GetComponent<Collider2D>();
+                Collider2D collider = obj.GetComponentInChildren<Collider2D>();
                 if (collider != null)
                 {
                     Bounds bounds = collider.bounds;
