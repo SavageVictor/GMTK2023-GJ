@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class simul_ship : MonoBehaviour
 {
     public Slider _slider;
-    public CircleCollider2D circleCollider;
     
     private Stats_ship _stats_ship;
     private Stats enemyStats;
@@ -29,10 +28,14 @@ public class simul_ship : MonoBehaviour
         Debug.Log("Sempi entered on my collider");
     }*/
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Sempi entered on my collider");
-        TakeDamage(10);
+       // Debug.Log("Sempi entered on my collider");
+       if (collider.tag == "asteroid")
+       {    
+           TakeDamage(collider.GetComponent<Stats>().GetDamage()); //TODO Fix damage
+           //Debug.Log("Sempi entered on my collider");
+        }
     }
 
     private void TakeDamage(float damage)
