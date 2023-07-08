@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ public class Move : MonoBehaviour
     //input obj
     public Rigidbody2D rb;
 
-    public Stats _stats;
+   private Stats _stats;
     //input var
 
     public float power = 10f;
@@ -31,7 +32,8 @@ public class Move : MonoBehaviour
     private Vector3 startPoint;
     private Vector3 endPoint;
     private Vector2 force;
-    private Camera cam;
+    [SerializeField]
+    public Camera cam;
 
 
 
@@ -39,6 +41,7 @@ public class Move : MonoBehaviour
     {
         _stats = new Stats();
 
+        _stats = GetComponent<Stats>();
 
         transform.localScale += new Vector3(_stats._size, _stats._size, 0); ;
         
@@ -79,7 +82,7 @@ public class Move : MonoBehaviour
                 endPoint.z = 15;
                 force = new Vector2(Math.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x),
                     Math.Clamp(startPoint.y - endPoint.y,minPower.y, maxPower.y));
-                rb.AddForce(force * power * _stats._speed_mem  / _stats._size / 5, ForceMode2D.Impulse);
+                rb.AddForce(force * power * _stats._speed_mem  / _stats._size / 2, ForceMode2D.Impulse);
                 tl.EndLine();
                 _isSelected = false;
             }
@@ -105,30 +108,9 @@ public class Move : MonoBehaviour
         transform.Rotate(0, 0, _stats._rot * Time.deltaTime); 
     }
 
-    //Check if Grounded
-    void OnCollisionEnter2D()
+
+    public Camera getCam()
     {
-       // _isGrounded = true;
+        return cam;
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Deth")
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    void OnMouseDown()
-    {
-    }
-   /* private void OnMouseOver()
-    {
-        if (!Input.GetMouseButtonDown(0)) return;
-
-        _isSelected = true;
-        Debug.Log("Uhu");
-        // Your logic here.
-    }*/
-
 }

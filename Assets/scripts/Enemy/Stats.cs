@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Random = System.Random;
-public  class Stats
+public  class Stats: MonoBehaviour
 {
 
     //TODO Try to create stats (helth)
