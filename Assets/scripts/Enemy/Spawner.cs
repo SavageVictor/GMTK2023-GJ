@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemy)
     {
-        GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight, bottomRight), Quaternion.identity);
+        GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight* 1.5f, bottomRight* 1.5f), Quaternion.identity);
         movingObjectPathifndingUpdating.movingObjects.Add(asteroid);
     }
 

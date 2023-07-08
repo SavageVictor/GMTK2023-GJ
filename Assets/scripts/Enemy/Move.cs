@@ -9,10 +9,11 @@ using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
-    //TODO  need to siparate helth logick and move
+    //TODO  need to siparate health logick and move
 
     //input obj
     public Rigidbody2D rb;
+    public CapsuleCollider2D col;
 
    private Stats _stats;
     //input var
@@ -21,7 +22,6 @@ public class Move : MonoBehaviour
     public Vector2 minPower;
     public Vector2 maxPower;
 
-    private bool _isSelected = false;
 
     TrajectoryLine tl;
     
@@ -43,7 +43,8 @@ public class Move : MonoBehaviour
 
         _stats = GetComponent<Stats>();
 
-        transform.localScale += new Vector3(_stats._size, _stats._size, 0); ;
+        transform.localScale += new Vector3(_stats._size, _stats._size, 0); 
+        rb.mass = _stats._size;
         
         cam = Camera.main;
         tl = GetComponent<TrajectoryLine>();
@@ -52,8 +53,8 @@ public class Move : MonoBehaviour
     void Update()
     {
             Movement();
-  
-           if(_isSelected)Charge();
+
+        if  (_stats._isSelected)Charge();
     }
 
 
@@ -84,7 +85,7 @@ public class Move : MonoBehaviour
                     Math.Clamp(startPoint.y - endPoint.y,minPower.y, maxPower.y));
                 rb.AddForce(force * power * _stats._speed_mem  / _stats._size / 2, ForceMode2D.Impulse);
                 tl.EndLine();
-                _isSelected = false;
+            _stats._isSelected = false;
             }
         
     }
@@ -99,8 +100,12 @@ public class Move : MonoBehaviour
                 transform.position.y - _stats._size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
             {
 
-                _isSelected = true;
-               // Debug.Log("Uhu");
+                if (!_stats._WasSelected)
+                {
+                    _stats._isSelected = true;
+                    _stats._WasSelected = true;
+                }
+                // Debug.Log("Uhu");
             }
         }
 
