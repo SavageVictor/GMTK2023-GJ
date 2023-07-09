@@ -12,6 +12,10 @@ public class Blink_ship : MonoBehaviour
     public GameObject _ship;
     public GameObject TeleportationEffect;
 
+    public bool isSideDodge;
+    
+    public string frontDodge = "FB-CLD ";
+
     public TextMeshProUGUI culdownOutput; 
 
     public bool chargeToBlink = false;
@@ -32,14 +36,14 @@ public class Blink_ship : MonoBehaviour
     {
         if (_time <= 0 && !chargeToBlink)
         {
-            culdownOutput.text = $"Forward Blink culdown: Ready ";
+            culdownOutput.text = $"FB-CLD R";
             chargeToBlink = true;
             _time = _timeer;
         }
         else if(!chargeToBlink)
         {
             _time -= Time.deltaTime;
-            culdownOutput.text = $"Forward Blink culdown: {_time.ToString("0")} ";
+            culdownOutput.text = $"FB-CLD {_time.ToString("0")} ";
         }
     }
 

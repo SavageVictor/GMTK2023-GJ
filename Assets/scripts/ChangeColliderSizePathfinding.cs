@@ -19,6 +19,6 @@ public class ChangeColliderSizePathfinding : MonoBehaviour
 
         float maxSize = Mathf.Max(parentSprite.size.x, parentSprite.size.y);
 
-        collider.radius = maxSize * 2;
+        collider.radius = maxSize * 1.6f;
     }
 }

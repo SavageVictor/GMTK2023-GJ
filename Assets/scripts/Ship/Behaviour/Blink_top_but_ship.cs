@@ -18,6 +18,7 @@ public class Blink_top_but_ship : MonoBehaviour
     public float _timeer = 5;
     public float _time;
 
+    public string sideDodge = "SB-CLD ";
 
     public AudioSource aud;
     public AudioClip[] BlinhClips;
@@ -29,16 +30,17 @@ public class Blink_top_but_ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (_time <= 0 && !chargeToBlink)
         {
-            culdownOutput.text = $"Side Blink culdown: Ready ";
+            culdownOutput.text = $"SB-CLD R";
             chargeToBlink = true;
             _time = _timeer;
         }
         else if (!chargeToBlink)
         {
             _time -= Time.deltaTime;
-            culdownOutput.text = $"Side Blink culdown: {_time.ToString("0")} ";
+            culdownOutput.text = $"SB-CLD {_time.ToString("0")} ";
         }
     }
 

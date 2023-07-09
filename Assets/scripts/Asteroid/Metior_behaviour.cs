@@ -21,9 +21,6 @@ public class Metior_behaviour : MonoBehaviour
 
     public Move camObj;
     public Stats _stats;
-    
-
-    public int camDethBorder = 10;
 
     private Vector3 topRight;
     private Vector3 topLeft;
@@ -51,10 +48,6 @@ public class Metior_behaviour : MonoBehaviour
             colis = (AudioSource)GetComponentInParent<Retranslator>()._source;
         }
 
-        topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
-            camObj.cam.nearClipPlane));
-        bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
-        amIDead();
 
         if (state.SoundIsOn)
         {
@@ -66,31 +59,6 @@ public class Metior_behaviour : MonoBehaviour
         }
     }
 
-    private void amIDead()
-    {
-        if (time <= 0)
-        {
-            if (transform.position.x > bottomLeft.x + camDethBorder ||
-                transform.position.x < topRight.x - camDethBorder / 2 ||
-                transform.position.y > topRight.y + (camDethBorder / 2) ||
-                transform.position.y < bottomLeft.y - (camDethBorder / 2)
-               )
-            {
-                Deth();
-            }
-
-            if (_stats.health <= 0)
-            {
-                Deth();
-            }
-
-            time = Timer;
-        }
-        else
-        {
-            time -= Time.deltaTime;
-        }
-    }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
