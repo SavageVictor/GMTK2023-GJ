@@ -71,10 +71,13 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnWave(Wave wave)
     {
-        while (gameState.GameIsStart && !gameState.GameIsPause)
+        while (gameState.GameIsStart )
         {
-            SpawnEnemy(enemyPrefab);
-            yield return new WaitForSeconds(1f / wave.rate);
+            if (!gameState.GameIsPause)
+            {
+                SpawnEnemy(enemyPrefab);
+                yield return new WaitForSeconds(1f / wave.rate);
+            }
         }
     }
 

@@ -20,26 +20,31 @@ public class OilBarrelSpawn : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
+           
+                yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
 
-            SpawnAtPosition(-10f, 10f);
+                SpawnAtPosition(-10f, 10f);
+            
         }
     }
 
     public void SpawnAtPosition(float minYPos, float maxYPos)
     {
-        float randomYPos = Random.Range(minYPos, maxYPos);
-        float randomRotation = Random.Range(0f, 360f); // Random rotation in degrees
-
-        Vector3 spawnPosition = new Vector3(this.transform.position.x, randomYPos, 0);
-        Quaternion spawnRotation = Quaternion.Euler(0, 0, randomRotation); // Rotation around Z axis
-        GameObject spawnedObject = Instantiate(gameObjectToMove, spawnPosition, spawnRotation);
-        spawnedObject.transform.parent = this.transform;
-
-        Rigidbody2D rb2d = spawnedObject.GetComponent<Rigidbody2D>();
-        if (rb2d != null)
+        if (!state.GameIsPause)
         {
-            rb2d.AddForce(new Vector2(-forceAmount, 0));
+            float randomYPos = Random.Range(minYPos, maxYPos);
+            float randomRotation = Random.Range(0f, 360f); // Random rotation in degrees
+
+            Vector3 spawnPosition = new Vector3(this.transform.position.x, randomYPos, 0);
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, randomRotation); // Rotation around Z axis
+            GameObject spawnedObject = Instantiate(gameObjectToMove, spawnPosition, spawnRotation);
+            spawnedObject.transform.parent = this.transform;
+
+            Rigidbody2D rb2d = spawnedObject.GetComponent<Rigidbody2D>();
+            if (rb2d != null)
+            {
+                rb2d.AddForce(new Vector2(-forceAmount, 0));
+            }
         }
     }
 

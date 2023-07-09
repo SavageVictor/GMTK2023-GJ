@@ -1319,6 +1319,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 578560297897547174, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 85114576}
+    - target: {fileID: 578560297897547174, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetDifToHard
+      objectReference: {fileID: 0}
     - target: {fileID: 1077637244475136377, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1343,9 +1351,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -176.07692
       objectReference: {fileID: 0}
+    - target: {fileID: 4649114443548101222, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 85114576}
+    - target: {fileID: 4649114443548101222, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetDifNormal
+      objectReference: {fileID: 0}
     - target: {fileID: 8424885618710320647, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529669377876488362, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 85114576}
+    - target: {fileID: 8529669377876488362, guid: 52f095715cf406d469682c6f5d9e7b19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetDifToEase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
