@@ -178,6 +178,7 @@ MonoBehaviour:
   min_rot: 1
   max_size: 3
   min_size: 1
+  damage: 5
   maxHealth: 0
   helth_per_scale: 100
   health: 0
