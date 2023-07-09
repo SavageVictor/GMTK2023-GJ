@@ -521,7 +521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameIsStart: 0
-  GameIsPause: 1
   SoundIsOn: 1
   MusicIsOn: 1
   LevelOfDif: 0
@@ -679,10 +678,6 @@ PrefabInstance:
       propertyPath: _state
       value: 
       objectReference: {fileID: 85114576}
-    - target: {fileID: 3949138618453856188, guid: 37ec2be12d7f63441ba88590b6e102ef, type: 3}
-      propertyPath: soundTrack.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6037637252555449368, guid: 37ec2be12d7f63441ba88590b6e102ef, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1583,7 +1578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: waves.Array.data[0].rate
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: waves.Array.data[1].rate
@@ -1591,7 +1586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: waves.Array.data[2].rate
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: waves.Array.data[3].rate
@@ -2047,10 +2042,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4068706751564800440, guid: 2928a40fe6e62d34992359c2f606a879, type: 3}
-      propertyPath: state
-      value: 
-      objectReference: {fileID: 85114576}
     - target: {fileID: 6984375171687084045, guid: 2928a40fe6e62d34992359c2f606a879, type: 3}
       propertyPath: m_Name
       value: OilBarrelSpawner

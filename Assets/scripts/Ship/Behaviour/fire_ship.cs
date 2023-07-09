@@ -31,7 +31,7 @@ public class fire_ship : MonoBehaviour
     void Update()
     {
 
-        if (_gameState.GameIsStart)
+        if (_gameState.GameIsStart && !_gameState.GameIsPause)
         {
             if (CanFire)
             {

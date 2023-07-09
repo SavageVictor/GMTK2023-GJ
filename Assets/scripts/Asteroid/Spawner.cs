@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
     [System.Serializable]
     public class Wave
     {
-        public int count;
+        //public int count;
         public float rate;
     }
 
@@ -71,7 +71,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnWave(Wave wave)
     {
-        while (gameState.GameIsStart)
+        while (gameState.GameIsStart && !gameState.GameIsPause)
         {
             SpawnEnemy(enemyPrefab);
             yield return new WaitForSeconds(1f / wave.rate);

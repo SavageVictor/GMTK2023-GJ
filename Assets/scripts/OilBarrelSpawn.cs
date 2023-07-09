@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OilBarrelSpawn : MonoBehaviour
 {
+    public GameStateS state;
     public GameObject gameObjectToMove;
     public float forceAmount = 10f;
     public float minSpawnInterval = 1f; // Minimum spawn interval
@@ -11,12 +12,13 @@ public class OilBarrelSpawn : MonoBehaviour
 
     void Start()
     {
+        
         StartCoroutine(SpawnAtRandomIntervals());
     }
 
     IEnumerator SpawnAtRandomIntervals()
     {
-        while (true)
+        while (true && !state.GameIsPause)
         {
             yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
 

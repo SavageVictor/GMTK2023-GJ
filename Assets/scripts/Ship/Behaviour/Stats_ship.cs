@@ -31,7 +31,7 @@ public class Stats_ship : MonoBehaviour
 
     void Update()
     {
-        if (_state.GameIsStart)
+        if (_state.GameIsStart && !_state.GameIsPause)
         {
             if (_time <= 0)
             {

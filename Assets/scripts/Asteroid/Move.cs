@@ -24,9 +24,10 @@ public class Move : MonoBehaviour
 
 
     TrajectoryLine tl;
-    
-    
-    
+
+    public GameStateS state = null;
+
+
 
 
     private Vector3 startPoint;
@@ -44,9 +45,13 @@ public class Move : MonoBehaviour
 
     void Start()
     {
+        if (state == null)
+        {
+            state = (GameStateS)GetComponentInParent<Retranslator>()._state;
+        }
 
 
-        _stats = new Stats();
+        //_stats = new Stats();
 
         _stats = GetComponent<Stats>();
 
@@ -59,9 +64,12 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        if (!state.GameIsPause)
+        {
             Movement();
 
-        if  (_stats._isSelected)Charge();
+            if (_stats._isSelected) Charge();
+        }
     }
 
 

@@ -20,6 +20,8 @@ public class Stats : MonoBehaviour
     public int min_rot = 1;
     public int max_size = 3;
     public int min_size = 1;
+    public int damage = 10;
+
 
     public float maxHealth;
 
@@ -54,6 +56,6 @@ public class Stats : MonoBehaviour
 
     public float GetDamage()
     {
-        return _size * (maxHealth + health)/maxHealth * 2;
+        return _size * damage * (maxHealth + health)/maxHealth;
     }
 }

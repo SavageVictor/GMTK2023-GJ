@@ -112,7 +112,7 @@ public class Metior_behaviour : MonoBehaviour
         {
             
         }
-    //  _slider.value = _stats.health;
+         //_slider.value = _stats.health;
     }
 
     void TakeDamage(int damage)

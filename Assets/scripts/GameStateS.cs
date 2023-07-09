@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStateS : MonoBehaviour
 {
     public bool GameIsStart = false;
+    public bool GameIsPause = true;
 
     public bool SoundIsOn = true;
     public bool MusicIsOn = true;
@@ -15,9 +16,20 @@ public class GameStateS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!GameIsStart)
         {
-            GameIsStart = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GameIsStart = true;
+                GameIsPause = false;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GameIsPause = !GameIsPause;
+            }
         }
     }
 
