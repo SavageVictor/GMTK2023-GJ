@@ -8,6 +8,8 @@ public class MovingObjectPathfindingUpdating : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        movingObjects.RemoveAll(item => item == null);
         foreach (GameObject obj in movingObjects)
         {
             if (obj != null)

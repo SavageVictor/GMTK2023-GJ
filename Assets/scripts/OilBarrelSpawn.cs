@@ -27,9 +27,11 @@ public class OilBarrelSpawn : MonoBehaviour
     public void SpawnAtPosition(float minYPos, float maxYPos)
     {
         float randomYPos = Random.Range(minYPos, maxYPos);
+        float randomRotation = Random.Range(0f, 360f); // Random rotation in degrees
 
         Vector3 spawnPosition = new Vector3(this.transform.position.x, randomYPos, 0);
-        GameObject spawnedObject = Instantiate(gameObjectToMove, spawnPosition, Quaternion.identity);
+        Quaternion spawnRotation = Quaternion.Euler(0, 0, randomRotation); // Rotation around Z axis
+        GameObject spawnedObject = Instantiate(gameObjectToMove, spawnPosition, spawnRotation);
         spawnedObject.transform.parent = this.transform;
 
         Rigidbody2D rb2d = spawnedObject.GetComponent<Rigidbody2D>();
@@ -38,4 +40,5 @@ public class OilBarrelSpawn : MonoBehaviour
             rb2d.AddForce(new Vector2(-forceAmount, 0));
         }
     }
+
 }

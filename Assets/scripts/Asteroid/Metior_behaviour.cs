@@ -50,7 +50,7 @@ public class Metior_behaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (state == null)
         {
@@ -136,7 +136,5 @@ public class Metior_behaviour : MonoBehaviour
         // Destroy the parent object
         Destroy(gameObject);
     }
-
-
 
 }
