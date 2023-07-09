@@ -51,10 +51,13 @@ public class Metior_behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
-            camObj.cam.nearClipPlane));
-        bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
-        amIDead();
+        if (state.GameIsStart)
+        {
+            topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
+                camObj.cam.nearClipPlane));
+            bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
+            amIDead();
+        }
     }
 
     private void amIDead()

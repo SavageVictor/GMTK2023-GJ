@@ -5,6 +5,10 @@ using UnityEngine;
 public class gameInAn : MonoBehaviour
 {
     public Animator animator;
+
+    public GameStateS _state;
+
+    private bool prevState;
     //public AnimationClip AnimationClip;
     //public Animation Animation;
     // Start is called before the first frame update
@@ -16,9 +20,13 @@ public class gameInAn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_state.GameIsStart)
         {
             animator.SetTrigger("IsGameStart");
+        }
+        else
+        {
+            animator.ResetTrigger("IsGameStart");
         }
     }
 }

@@ -22,6 +22,7 @@ public class Move : MonoBehaviour
     public Vector2 minPower;
     public Vector2 maxPower;
 
+    public GameStateS gameState;
 
     TrajectoryLine tl;
     
@@ -40,6 +41,7 @@ public class Move : MonoBehaviour
     void Start()
     {
 
+        gameState = (GameStateS)GetComponentInParent<Retranslator>()._state;
         cam = Camera.main;
         _stats = new Stats();
 
@@ -54,9 +56,12 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        if (gameState.GameIsStart)
+        {
             Movement();
 
-        if  (_stats._isSelected)Charge();
+            if (_stats._isSelected) Charge();
+        }
     }
 
 

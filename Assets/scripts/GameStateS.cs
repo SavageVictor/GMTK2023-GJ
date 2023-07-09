@@ -16,7 +16,7 @@ public class GameStateS : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameIsStart = true;
+            GameIsStart = !GameIsStart;
         }
     }
 
