@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class music : MonoBehaviour
 {
+    public GameStateS _state;
+
     public AudioSource aud;
     public AudioClip[] soundTrack;
 
@@ -22,6 +24,14 @@ public class music : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_state.MusicIsOn)
+        {
+            aud.volume = 1f;
+        }
+        else
+        {
+            aud.volume = 0f;
+        }
         PlayMusic();
     }
 

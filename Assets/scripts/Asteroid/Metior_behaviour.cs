@@ -15,6 +15,8 @@ public class Metior_behaviour : MonoBehaviour
     public Slider _slider;
     public GameObject _sliderObj;
 */
+    public GameStateS state;
+    //public Retranslator ret;
     public GameObject ImpactExplosion;
 
     private Move camObj;
@@ -37,7 +39,7 @@ public class Metior_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = (GameStateS)GetComponentInParent<Retranslator>()._state;
         camObj = GetComponent<Move>();
         _stats  = GetComponent<Stats>();
 
@@ -83,8 +85,8 @@ public class Metior_behaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-
-         colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
+       if(state.SoundIsOn) colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
+        
         if (coll.tag == "asteroid")
         {
             _stats.health -= 10;

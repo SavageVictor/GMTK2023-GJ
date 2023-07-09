@@ -96,10 +96,10 @@ public class Move : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (transform.position.x + _stats._size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).x &&
-                transform.position.x - _stats._size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).x &&
-                transform.position.y + _stats._size / 2 > cam.ScreenToWorldPoint(Input.mousePosition).y &&
-                transform.position.y - _stats._size / 2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
+            if (transform.position.x + _stats._size / 1.2 > cam.ScreenToWorldPoint(Input.mousePosition).x &&
+                transform.position.x - _stats._size / 1.2 < cam.ScreenToWorldPoint(Input.mousePosition).x &&
+                transform.position.y + _stats._size / 1.2 > cam.ScreenToWorldPoint(Input.mousePosition).y &&
+                transform.position.y - _stats._size / 1.2 < cam.ScreenToWorldPoint(Input.mousePosition).y)
             {
 
                 if (!_stats._WasSelected)

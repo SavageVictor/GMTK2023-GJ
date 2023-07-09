@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    // GameObject SpawnerP;
     public GameStateS gameState;
     
     public Camera cam;
@@ -80,7 +81,7 @@ public class Spawner : MonoBehaviour
     private void SpawnEnemy(GameObject enemy)
     {
         GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight + Vector3.right * 1, bottomRight + Vector3.right * 1), Quaternion.identity);
-
+        asteroid.transform.SetParent(transform, true);
         // Adjust the circle collider to match the sprite
         CircleCollider2D asteroidCollider = asteroid.GetComponent<CircleCollider2D>();
         if (asteroidCollider != null)
