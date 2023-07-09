@@ -2699,6 +2699,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1182487981}
     - target: {fileID: 3065959728523485112, guid: 82ee3ef28fb1cca42a9f760ef5c7e4b6, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3157042947998573692, guid: ecb386cf7435a90459a17c6a749e0053, type: 3}
+    - target: {fileID: 3065959728523485112, guid: 82ee3ef28fb1cca42a9f760ef5c7e4b6, type: 3}
       propertyPath: _gameState
       value: 
       objectReference: {fileID: 85114576}

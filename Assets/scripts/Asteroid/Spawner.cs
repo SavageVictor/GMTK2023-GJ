@@ -73,16 +73,17 @@ public class Spawner : MonoBehaviour
     {
         while (gameState.GameIsStart )
         {
-            if (!gameState.GameIsPause)
-            {
+           
                 SpawnEnemy(enemyPrefab);
                 yield return new WaitForSeconds(1f / wave.rate);
-            }
+           
         }
     }
 
     private void SpawnEnemy(GameObject enemy)
     {
+        if (!gameState.GameIsPause)
+        {
         GameObject asteroid = Instantiate(enemy, GetRandomPosition(topRight + Vector3.right * 1, bottomRight + Vector3.right * 1), Quaternion.identity);
         asteroid.transform.SetParent(transform, true);
         // Adjust the circle collider to match the sprite
@@ -108,6 +109,7 @@ public class Spawner : MonoBehaviour
 
             // Set the radius of the CircleCollider2D based on the size of the sprite
             asteroidCollider.radius = spriteSize / 2.0f;
+        }
         }
     }
 
