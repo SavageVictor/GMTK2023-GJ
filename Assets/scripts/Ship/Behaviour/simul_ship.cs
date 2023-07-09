@@ -62,7 +62,13 @@ public class simul_ship : MonoBehaviour
        else if (collider.tag == "oil")
        {
            _stats_ship.helth += 25;
+           if (_stats_ship.helth > 100)
+           {
+               _stats_ship.helth = 100;
+           }
        }
+
+       _slider.value = _stats_ship.helth;
     }
 
     private void TakeDamage(float damage)
