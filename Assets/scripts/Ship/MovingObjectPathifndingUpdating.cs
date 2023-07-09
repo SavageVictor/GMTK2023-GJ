@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
-public class MovingObjectPathfindingUpdating : MonoBehaviour
+public class MovingObjectPathifndingUpdating : MonoBehaviour
 {
     public List<GameObject> movingObjects;
 

@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
 
     float timer = 10f; // countdown starts at 10 seconds
 
-    private MovingObjectPathfindingUpdating movingObjectPathifndingUpdating;
+    private MovingObjectPathifndingUpdating movingObjectPathifndingUpdating;
 
     [System.Serializable]
     public class Wave
@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        movingObjectPathifndingUpdating = GetComponent<MovingObjectPathfindingUpdating>();
+        movingObjectPathifndingUpdating = GetComponent<MovingObjectPathifndingUpdating>();
       
     }
 
@@ -106,9 +106,6 @@ public class Spawner : MonoBehaviour
             // Set the radius of the CircleCollider2D based on the size of the sprite
             asteroidCollider.radius = spriteSize / 2.0f;
         }
-
-        movingObjectPathifndingUpdating.movingObjects.Add(asteroid);
-
     }
 
     Vector3 GetRandomPosition(Vector3 a, Vector3 b)

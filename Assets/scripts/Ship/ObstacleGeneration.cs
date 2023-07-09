@@ -9,11 +9,11 @@ public class ObjectSpawner : MonoBehaviour
     public float launchForceMin = 1f; 
     public float launchForceMax = 5f;
 
-    private MovingObjectPathfindingUpdating movingObjectPathifndingUpdating;
+    private MovingObjectPathifndingUpdating movingObjectPathifndingUpdating;
 
     void Start()
     {
-        movingObjectPathifndingUpdating = GetComponent<MovingObjectPathfindingUpdating>();
+        movingObjectPathifndingUpdating = GetComponent<MovingObjectPathifndingUpdating>();
     }
 
     void Update()
