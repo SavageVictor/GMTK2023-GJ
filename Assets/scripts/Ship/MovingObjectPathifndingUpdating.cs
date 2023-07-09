@@ -8,8 +8,12 @@ public class MovingObjectPathifndingUpdating : MonoBehaviour
 
     void FixedUpdate()
     {
-
         movingObjects.RemoveAll(item => item == null);
+
+        Bounds combinedBounds = new Bounds();
+
+        bool hasBounds = false;
+
         foreach (GameObject obj in movingObjects)
         {
             if (obj != null)
@@ -18,14 +22,26 @@ public class MovingObjectPathifndingUpdating : MonoBehaviour
                 Collider2D collider = colliderHolder.Collider;
                 if (collider != null)
                 {
-                    Bounds bounds = collider.bounds;
-                    AstarPath.active.UpdateGraphs(bounds);
+                    if (hasBounds)
+                    {
+                        combinedBounds.Encapsulate(collider.bounds);
+                    }
+                    else
+                    {
+                        combinedBounds = collider.bounds;
+                        hasBounds = true;
+                    }
                 }
                 else
                 {
                     Debug.LogError("No 2D collider attached to the GameObject " + obj.name);
                 }
             }
+        }
+
+        if (hasBounds)
+        {
+            AstarPath.active.UpdateGraphs(combinedBounds);
         }
     }
 }

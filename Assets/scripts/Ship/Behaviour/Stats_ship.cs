@@ -48,7 +48,7 @@ public class Stats_ship : MonoBehaviour
     public void ScoreUpdate(int addToScore)
     {
         score += addToScore;
-        scoreUI.text = score.ToString("0");
+        scoreUI.text = "SCR " + score.ToString("0");
     }
 
 
