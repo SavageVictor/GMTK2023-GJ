@@ -24,10 +24,18 @@ public class Stats_ship : MonoBehaviour
         ScoreUpdate(0);
     }
 
-    void ScoreUpdate(int addToScore)
+    public void ScoreUpdate(int addToScore)
     {
         score += addToScore;
         scoreUI.text = score.ToString("0");
     }
+
+
+/*
+    public void ScoreMin(int addToScore)
+    {
+        score -= addToScore;
+        scoreUI.text = score.ToString("0");
+    }*/
 
 }

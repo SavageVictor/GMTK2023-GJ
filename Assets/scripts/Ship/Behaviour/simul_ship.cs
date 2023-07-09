@@ -57,8 +57,10 @@ public class simul_ship : MonoBehaviour
        if (collider.tag == "asteroid")
        {    
            TakeDamage(collider.GetComponent<Stats>().GetDamage()); //TODO Fix damage
-           //Debug.Log("Sempi entered on my collider");
-       }
+
+           _stats_ship.ScoreUpdate(-5);
+            //Debug.Log("Sempi entered on my collider");
+        }
        else if (collider.tag == "oil")
        {
            _stats_ship.helth += 25;
@@ -66,6 +68,8 @@ public class simul_ship : MonoBehaviour
            {
                _stats_ship.helth = 100;
            }
+
+           _stats_ship.ScoreUpdate(25);
        }
 
        _slider.value = _stats_ship.helth;
