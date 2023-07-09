@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Net.Mime;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Blink_ship : MonoBehaviour
 {
     public Stats_ship _stats_ship;
     public GameObject _ship;
     public GameObject TeleportationEffect;
+
+    public TextMeshProUGUI culdownOutput; 
 
     public bool chargeToBlink = false;
 
@@ -25,14 +30,16 @@ public class Blink_ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_time >= _timeer && !chargeToBlink)
+        if (_time <= 0 && !chargeToBlink)
         {
+            culdownOutput.text = $"Forward Blink culdown: Ready ";
             chargeToBlink = true;
-            _time = 0;
+            _time = _timeer;
         }
         else if(!chargeToBlink)
         {
-            _time += Time.deltaTime;
+            _time -= Time.deltaTime;
+            culdownOutput.text = $"Forward Blink culdown: {_time.ToString("0")} ";
         }
     }
 
@@ -55,7 +62,7 @@ public class Blink_ship : MonoBehaviour
 
             Instantiate(TeleportationEffect, _ship.transform.position, Quaternion.identity);
 
-            aud.PlayOneShot(BlinhClips[UnityEngine.Random.Range(0, BlinhClips.Length)], 1);
+            aud.PlayOneShot(BlinhClips[UnityEngine.Random.Range(0, BlinhClips.Length)], 0.5f);
 
             chargeToBlink = false;
         }

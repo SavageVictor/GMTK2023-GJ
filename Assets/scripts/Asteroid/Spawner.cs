@@ -63,15 +63,15 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnAllWaves()
     {
-        for (int i = 0; i < waves.Length; i++)
-        {
-            yield return StartCoroutine(SpawnWave(waves[i]));
-        }
+     /*   for (int i = 0; i < waves.Length; i++)
+        {*/
+            yield return StartCoroutine(SpawnWave(waves[gameState.LevelOfDif]));
+        //}
     }
 
     private IEnumerator SpawnWave(Wave wave)
     {
-        for (int i = 0; i < wave.count; i++)
+        while (gameState.GameIsStart)
         {
             SpawnEnemy(enemyPrefab);
             yield return new WaitForSeconds(1f / wave.rate);

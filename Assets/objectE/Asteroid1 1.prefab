@@ -153,7 +153,7 @@ MonoBehaviour:
   camObj: {fileID: 1702846001627681957}
   _stats: {fileID: 3309541201615947258}
   camDethBorder: 200
-  colis: {fileID: 1454627790655066997}
+  colis: {fileID: 0}
   babch1:
   - {fileID: 8300000, guid: 5ba5fbe5dff93d248821bcecdc6624d1, type: 3}
   - {fileID: 8300000, guid: c80dbe9749386104ead82f4c3153ec62, type: 3}

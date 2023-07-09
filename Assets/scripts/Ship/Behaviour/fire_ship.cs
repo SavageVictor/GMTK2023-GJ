@@ -72,7 +72,7 @@ public class fire_ship : MonoBehaviour
     private void Fire()
     {
 
-        if(_gameState.SoundIsOn) aud.PlayOneShot(Shoot[UnityEngine.Random.Range(0, Shoot.Length)], 1);
+        if(_gameState.SoundIsOn) aud.PlayOneShot(Shoot[UnityEngine.Random.Range(0, Shoot.Length)], 0.5f);
         Instantiate(bullet, fire_point.transform.position, Quaternion.identity);
     }
 }
