@@ -8,7 +8,7 @@ public class bulletS : MonoBehaviour
 {
     public float speed;
 
-    public float damage;
+    public int damage;
 
 
     // Start is called before the first frame update
@@ -24,7 +24,15 @@ public class bulletS : MonoBehaviour
        
     }
 
- 
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "asteroid")
+        {
+            coll.SendMessage("TakeDamage", damage);
+
+            Destroy(gameObject);
+        }
+    }
 
   
 }

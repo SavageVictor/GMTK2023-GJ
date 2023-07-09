@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Metior_behaviour : MonoBehaviour
     public Slider _slider;
     public GameObject _sliderObj;
 */
+    public GameStateS state;
+    //public Retranslator ret;
     public GameObject ImpactExplosion;
 
     private Move camObj;
@@ -30,10 +33,13 @@ public class Metior_behaviour : MonoBehaviour
     private float Timer = 1;
     private float time = 0;
 
+    public AudioSource colis;
+    public AudioClip[] babch1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = (GameStateS)GetComponentInParent<Retranslator>()._state;
         camObj = GetComponent<Move>();
         _stats  = GetComponent<Stats>();
 
@@ -45,15 +51,6 @@ public class Metior_behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      /*  if (_stats._isSelected)
-        {
-            _sliderObj.active = true;
-        }
-        else
-        {
-            _sliderObj.active = false;
-        }*/
-
         topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
             camObj.cam.nearClipPlane));
         bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
@@ -86,21 +83,31 @@ public class Metior_behaviour : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
+       if(state.SoundIsOn) colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
         
-        if (coll.collider.tag == "asteroid")
+        if (coll.tag == "asteroid")
         {
             _stats.health -= 10;
         }
 
-        if (coll.collider.tag == "Player")
+        if (coll.tag == "Player")
         {
             //coll.collider.SendMessage("TakeDamage", _stats.GetDamage()); 
             Deth();
         }
 
-      //  _slider.value = _stats.health;
+        if (coll.tag == "bullet")
+        {
+            
+        }
+    //  _slider.value = _stats.health;
+    }
+
+    void TakeDamage(int damage)
+    {
+        _stats.health -= damage;
     }
 
     public void Deth()
