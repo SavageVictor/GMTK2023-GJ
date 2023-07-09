@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ParseSafestPoint : MonoBehaviour
@@ -14,7 +15,7 @@ public class ParseSafestPoint : MonoBehaviour
 
         foreach (Transform child in transform)
         {
-            RaycastHit2D hit = Physics2D.Raycast(child.position, Vector2.right, Mathf.Infinity, layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(child.position, Vector2.right, 30, layerMask);
 
             if (hit.collider != null)
             {

@@ -26,15 +26,6 @@ public class MovingObjectPathifndingUpdating : MonoBehaviour
                     Debug.LogError("No 2D collider attached to the GameObject " + obj.name);
                 }
             }
-            else
-            {
-                //movingObjects.Remove(obj);
-            }
         }
-    }
-
-    private void RemoveGameObject()
-    {
-
     }
 }
