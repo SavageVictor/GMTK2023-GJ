@@ -30,6 +30,7 @@ public class fire_ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (_gameState.GameIsStart)
         {
             if (CanFire)
@@ -71,7 +72,7 @@ public class fire_ship : MonoBehaviour
     private void Fire()
     {
 
-        aud.PlayOneShot(Shoot[UnityEngine.Random.Range(0, Shoot.Length)], 1);
+        if(_gameState.SoundIsOn) aud.PlayOneShot(Shoot[UnityEngine.Random.Range(0, Shoot.Length)], 1);
         Instantiate(bullet, fire_point.transform.position, Quaternion.identity);
     }
 }

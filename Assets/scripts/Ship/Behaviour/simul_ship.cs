@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class simul_ship : MonoBehaviour
 {
     public Slider _slider;
@@ -11,6 +12,8 @@ public class simul_ship : MonoBehaviour
     public GameObject ParentGameObject;
     public GameObject explosionEffect; 
     public GameObject destoyedParts;
+
+    public GameStateS _gameState;
 
     public int numberOfExplosions = 5; 
     public float explosionDelay = 0.5f; 
@@ -20,6 +23,12 @@ public class simul_ship : MonoBehaviour
 
     private Stats_ship _stats_ship;
     private Stats enemyStats;
+
+
+    public AudioSource aud;
+    public AudioClip[] DeathSound;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,8 +77,10 @@ public class simul_ship : MonoBehaviour
         isNotDying = false;
         StartCoroutine(ExplosionEffectCoroutine());
 
-            // Disable all components in the parent and children except SpriteRenderers
-            foreach (Transform child in ParentGameObject.GetComponentsInChildren<Transform>(true))
+        if (_gameState.SoundIsOn) aud.PlayOneShot(DeathSound[UnityEngine.Random.Range(0, DeathSound.Length)], 1);
+
+        // Disable all components in the parent and children except SpriteRenderers
+        foreach (Transform child in ParentGameObject.GetComponentsInChildren<Transform>(true))
             {
                 foreach (var component in child.GetComponents<Component>())
                 {

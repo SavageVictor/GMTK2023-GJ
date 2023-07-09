@@ -148,7 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e3b6f154100234c991d07e407408a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: {fileID: 0}
   ImpactExplosion: {fileID: 7085268401036142489, guid: 0955b777f43b08740bd42eea59c62ffd, type: 3}
+  camObj: {fileID: 1702846001627681957}
+  _stats: {fileID: 3309541201615947258}
   camDethBorder: 200
   colis: {fileID: 1454627790655066997}
   babch1:
@@ -314,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25721fc038e4a544f862c569ebb118ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
+  lr: {fileID: 1998994750916762917}
 --- !u!82 &1454627790655066997
 AudioSource:
   m_ObjectHideFlags: 0

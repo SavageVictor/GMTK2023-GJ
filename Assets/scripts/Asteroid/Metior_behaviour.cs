@@ -15,12 +15,12 @@ public class Metior_behaviour : MonoBehaviour
     public Slider _slider;
     public GameObject _sliderObj;
 */
-    public GameStateS state;
+    public GameStateS state = null;
     //public Retranslator ret;
     public GameObject ImpactExplosion;
 
-    private Move camObj;
-    private Stats _stats;
+    public Move camObj;
+    public Stats _stats;
     
 
     public int camDethBorder = 10;
@@ -37,24 +37,38 @@ public class Metior_behaviour : MonoBehaviour
     public AudioClip[] babch1;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+
+
+      
+    }
+
     void Start()
     {
-        state = (GameStateS)GetComponentInParent<Retranslator>()._state;
-        camObj = GetComponent<Move>();
-        _stats  = GetComponent<Stats>();
-
-     /*   _slider.value = _stats.maxHealth;
-        _sliderObj.active = false;*/
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (state == null)
+        {
+            state = (GameStateS)GetComponentInParent<Retranslator>()._state;
+        }
         topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
             camObj.cam.nearClipPlane));
         bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
         amIDead();
+
+        if (state.SoundIsOn)
+        {
+            colis.volume = 1;
+        }
+        else
+        {
+            colis.volume = 0;
+        }
     }
 
     private void amIDead()
@@ -85,7 +99,8 @@ public class Metior_behaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-       if(state.SoundIsOn) colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
+     
+           colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
         
         if (coll.tag == "asteroid")
         {

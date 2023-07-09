@@ -36,11 +36,16 @@ public class Move : MonoBehaviour
     public Camera cam;
 
 
+    void Awake()
+    {
+
+        cam = Camera.main;
+    }
 
     void Start()
     {
 
-        cam = Camera.main;
+
         _stats = new Stats();
 
         _stats = GetComponent<Stats>();
