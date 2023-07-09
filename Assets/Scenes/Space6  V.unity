@@ -1574,7 +1574,7 @@ PrefabInstance:
       objectReference: {fileID: 3261434178500912689, guid: 38cd1031af0f90842bbcaccf556e8e27, type: 3}
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: waves.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6267418022817983872, guid: 76ce52fa5b01d3d4497a7105202f52d2, type: 3}
       propertyPath: waves.Array.data[0].rate
@@ -3764,6 +3764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: {fileID: 85114576}
+  _source: {fileID: 1182487981}
 --- !u!1001 &1540850165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4736,6 +4737,14 @@ PrefabInstance:
       propertyPath: 'DeathSound.Array.data[2]'
       value: 
       objectReference: {fileID: 8300000, guid: 8c2bd2a685cc32f4ba7d7ab01661417e, type: 3}
+    - target: {fileID: 5829978924234305585, guid: 82ee3ef28fb1cca42a9f760ef5c7e4b6, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829978924234305585, guid: 82ee3ef28fb1cca42a9f760ef5c7e4b6, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 6257282644452475191, guid: 82ee3ef28fb1cca42a9f760ef5c7e4b6, type: 3}
       propertyPath: target
       value: 

@@ -33,22 +33,11 @@ public class Metior_behaviour : MonoBehaviour
     private float Timer = 1;
     private float time = 0;
 
-    public AudioSource colis;
+    public AudioSource colis = null;
     public AudioClip[] babch1;
 
     // Start is called before the first frame update
-    void Awake()
-    {
-
-
-      
-    }
-
-    void Start()
-    {
-
-    }
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -56,6 +45,12 @@ public class Metior_behaviour : MonoBehaviour
         {
             state = (GameStateS)GetComponentInParent<Retranslator>()._state;
         }
+
+        if (colis == null)
+        {
+            colis = (AudioSource)GetComponentInParent<Retranslator>()._source;
+        }
+
         topRight = camObj.cam.ScreenToWorldPoint(new Vector3(camObj.cam.pixelWidth, camObj.cam.pixelHeight,
             camObj.cam.nearClipPlane));
         bottomLeft = camObj.cam.ScreenToWorldPoint(new Vector3(0, 0, camObj.cam.nearClipPlane));
@@ -100,11 +95,11 @@ public class Metior_behaviour : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
      
-           colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size/10);
+        
         
         if (coll.tag == "asteroid")
         {
-            _stats.health -= 10;
+           // _stats.health -= 10;
         }
 
         if (coll.tag == "Player")
@@ -127,11 +122,15 @@ public class Metior_behaviour : MonoBehaviour
 
     public void Deth()
     {
+
+        colis.PlayOneShot(babch1[UnityEngine.Random.Range(0, babch1.Length)], _stats._size / 100);
+
         // Instantiate ImpactExplosion
         GameObject explosionInstance = Instantiate(ImpactExplosion, gameObject.transform.position, Quaternion.identity);
 
         // Match the scale of the parent gameObject
         explosionInstance.transform.localScale = gameObject.transform.localScale;
+
 
         // Destroy the parent object
         Destroy(gameObject);

@@ -62,7 +62,7 @@ public class Blink_ship : MonoBehaviour
 
             Instantiate(TeleportationEffect, _ship.transform.position, Quaternion.identity);
 
-            aud.PlayOneShot(BlinhClips[UnityEngine.Random.Range(0, BlinhClips.Length)], 1);
+            aud.PlayOneShot(BlinhClips[UnityEngine.Random.Range(0, BlinhClips.Length)], 0.5f);
 
             chargeToBlink = false;
         }

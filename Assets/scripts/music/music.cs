@@ -44,7 +44,7 @@ public class music : MonoBehaviour
                 next = UnityEngine.Random.Range(0, soundTrack.Length);
             } while (next == prev);
 
-            aud.PlayOneShot(soundTrack[next], 0.5f);
+            aud.PlayOneShot(soundTrack[next], 0.1f);
             isPlay = true;
         }
         else
