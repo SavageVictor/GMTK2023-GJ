@@ -701,7 +701,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -729,7 +729,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2, y: 0.2}
+  m_Size: {x: 0.5, y: 0.09}
   m_EdgeRadius: 0
 --- !u!82 &355902390
 AudioSource:
@@ -896,7 +896,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2, y: 0.2}
+  m_Size: {x: 0.5, y: 0.09}
   m_EdgeRadius: 0
 --- !u!1 &473195868
 GameObject:
