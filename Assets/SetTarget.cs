@@ -7,6 +7,7 @@ public class SetTarget : MonoBehaviour
 {
     public AIDestinationSetter AiDestinationSetter;
     public ParseSafestPoint ParseSafestPoint;
+    public AddBarrelsToTargets BarrelsToTarget;
 
     void Start()
     {
@@ -15,6 +16,13 @@ public class SetTarget : MonoBehaviour
 
     void FixedUpdate()
     {
-        AiDestinationSetter.target = ParseSafestPoint.farthestUnobstructed;
+        if (BarrelsToTarget.ClosestBarrel != null)
+        {
+            AiDestinationSetter.target = BarrelsToTarget.ClosestBarrel.transform;
+        }
+        else
+        {
+            AiDestinationSetter.target = ParseSafestPoint.farthestUnobstructed;
+        }
     }
 }

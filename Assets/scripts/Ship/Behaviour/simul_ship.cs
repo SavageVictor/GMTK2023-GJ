@@ -49,7 +49,11 @@ public class simul_ship : MonoBehaviour
        {    
            TakeDamage(collider.GetComponent<Stats>().GetDamage()); //TODO Fix damage
            //Debug.Log("Sempi entered on my collider");
-        }
+       }
+       else if (collider.tag == "oil")
+       {
+           _stats_ship.helth += 25;
+       }
     }
 
     private void TakeDamage(float damage)
