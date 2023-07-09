@@ -26,10 +26,10 @@ public class GameStateS : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+           /* if (Input.GetKeyDown(KeyCode.Space))
             {
                 GameIsPause = !GameIsPause;
-            }
+            }*/
         }
     }
 

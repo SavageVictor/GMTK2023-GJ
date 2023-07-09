@@ -86,6 +86,7 @@ public class Metior_behaviour : MonoBehaviour
     void TakeDamage(int damage)
     {
         _stats.health -= damage;
+        if(_stats.health <= 0) Deth();
     }
 
     public void Deth()

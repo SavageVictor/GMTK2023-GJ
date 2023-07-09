@@ -18,7 +18,7 @@ public class OilBarrelSpawn : MonoBehaviour
 
     IEnumerator SpawnAtRandomIntervals()
     {
-        while (true && !state.GameIsPause)
+        while (true)
         {
             yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
 
